@@ -1,0 +1,18 @@
+#Si queremos hacer "Spidering Activo" con las antiguas versiones de "Burp Suite" en la version gratuita estaba implementado, 
+#pero ahora es de pago, por lo que podremos hacerlo con otra herramienta llamada "skipfish".
+
+$ ./installSkipfish.sh
+
+#"Skipfish" es una herramienta que viene por defecto en "kali", para hacer este tipo de escaneo haremos lo siguiente:
+
+$ mkdir skipfish_results
+
+$ skipfish -YO -o skipfish_results <URL_Vuln>
+
+#Con el parametro "-YO" lo que estamos haciendo es que nuestro escaneo no sea tan intrusivo, 
+#haciendo un poco de "fuzzing" en directorios, para ir descubriendo informacion.
+
+#Una vez ejecutado esto, pulsaremos "ENTER" y estara en proceso la herramienta de escaneo activo sobre la URL indicada.
+
+#Esta tecnica ("Spidering o Crawling") de escaneo deberia de ser la primera que deberemos de 
+#realizar para juntar toda la informacion posible sobre la pagina web y posteriormente analizar dicha informacion para una posible explotacion.
