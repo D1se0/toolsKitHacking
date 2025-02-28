@@ -1,40 +1,40 @@
 # 🔥 Ethical Hacking Toolkit 🚀
 
-### La colección definitiva de herramientas para pentesting y ciberseguridad
+### The definitive collection of pentesting and cybersecurity tools
 
-## 📌 Descripción
-Este **toolkit de hacking ético** reúne las herramientas más potentes y utilizadas en auditoría de seguridad, análisis forense, OSINT, explotación de vulnerabilidades y pruebas de penetración. Diseñado para **profesionales de la ciberseguridad**, **hackers éticos** y **entusiastas de la seguridad informática**.
+## 📌 Description
+This **ethical hacking toolkit** brings together the most powerful and used tools in security auditing, forensic analysis, OSINT, vulnerability exploitation and penetration testing. Designed for **cybersecurity professionals**, **ethical hackers** and **cybersecurity enthusiasts**.
 
-## 🛠️ Herramientas incluidas
-✔️ **Escaneo y reconocimiento** (Nmap, Masscan, Recon-ng)  
-✔️ **Explotación de vulnerabilidades** (Metasploit, SQLmap, ExploitDB)  
-✔️ **Ingeniería inversa** (Radare2, Ghidra, IDA Free)  
-✔️ **Ataques de fuerza bruta** (Hydra, John the Ripper, Hashcat)  
-✔️ **OSINT e inteligencia** (theHarvester, Maltego, SpiderFoot)  
-✔️ **Pruebas de redes inalámbricas** (Aircrack-ng, Reaver, Bettercap)  
-✔️ **Análisis forense** (Autopsy, Volatility, Wireshark)  
-✔️ **Anonimato y privacidad** (Tor, ProxyChains, Tails, Whonix)  
+## 🛠️ Tools included
+✔️ **Scanning and recognition** (Nmap, Masscan, Recon-ng)  
+✔️ **Vulnerability exploitation** (Metasploit, SQLmap, ExploitDB)  
+✔️ **Reverse engineering** (Radare2, Ghidra, IDA Free)  
+✔️ **Brute force attacks** (Hydra, John the Ripper, Hashcat)  
+✔️ **OSINT and intelligence** (theHarvester, Maltego, SpiderFoot)  
+✔️ **Wireless network tests** (Aircrack-ng, Reaver, Bettercap)  
+✔️ **Forensic analysis** (Autopsy, Volatility, Wireshark)  
+✔️ **Anonymity and privacy** (Tor, ProxyChains, Tails, Whonix)  
 
-## 🚀 Instalación
-Clona el repositorio y accede a las herramientas de forma rápida:  
+## 🚀 Installation
+Clone the repository and access the tools quickly:
 
 ```bash
 git clone https://github.com/D1se0/toolsKitHacking.git
 cd toolsKitHacking
 ```
 
-###### 📌 Nota: Algunas herramientas requieren permisos de superusuario. Asegúrate de ejecutarlas con sudo cuando sea necesario.
+###### 📌 Note: Some tools require superuser permissions. Make sure to run them with sudo when necessary.
 
-## 📚 Uso
-Cada herramienta se encuentra bien documentada y con ejemplos en los archivos de info.txt.
+## 📚 Usage
+Each tool is well documented and with examples in the info.txt files.
 
 ## ⚠️ Disclaimer
-Este toolkit es solo para uso educativo y pruebas de seguridad en entornos autorizados.
-El uso indebido de estas herramientas puede ser ilegal. El autor no se hace responsable del uso inapropiado.
+This toolkit is for educational use and security testing in authorized environments only.
+Misuse of these tools may be illegal. The author is not responsible for inappropriate use.
 
-## 🤝 Contribuciones
-¡Las contribuciones son bienvenidas! Si tienes una herramienta interesante para agregar, abre un Pull Request o crea un Issue.
+## 🤝 Contributions
+Contributions are welcome! If you have an interesting tool to add, open a Pull Request or create an Issue.
 
-💻 Sígueme en redes sociales y mantente actualizado
+💻 Follow me on social networks and stay updated
 
-📩 Para cualquier duda o sugerencia, contáctame en [ciberseguridad12345@gmail.com].
+📩 For any questions or suggestions, contact me at [ciberseguridad12345@gmail.com].
