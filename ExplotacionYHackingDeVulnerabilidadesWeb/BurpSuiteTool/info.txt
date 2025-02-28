@@ -1,0 +1,13 @@
+#Basicamente esta herramienta es un "proxy" de interceptación, 
+#mediante una encuenta a expertos en ciberseguridad la que mas se utiliza sin ninguna duda es "Burp Suite" para las auditorias 
+#o para programas como "Bug Bounty".
+
+#Esta herramienta se va a situar entre nuestro navegador y la aplicacion web/servidro web, 
+#al que estamos realizando la peticion para consumir esa pagina web.
+
+#Por lo que tendremos que configurar el navegador para que todas 
+#las peticiones pasen a traves de "Burp Suit" desde este "proxy" y con esto nos podra mostrar una serie de informacion, 
+#para realizar una serie de tareas las cuales nos permitiran analizar.
+
+$ ./installBurpSuite.sh
+

@@ -1,0 +1,13 @@
+# Un WAF es un firewall que suelen tener las aplicaciones web en los servidores para poder filtrar todas esas posibles 
+# vulnerabilidades web como por ejemplo un XSS, SQL Injection, etc... Es un bloqueador de todo este tipo de trafico que 
+# nos puede impedir realizar diversas tecnicas de hacking a nivel web.
+
+# Para poder evadir este tipo de WAF podremos utilizar la herramienta.
+
+# Esta herramienta es muy util para detectar que tipo de WAF tenemos por delante en un servidor web, a parte de que tiene 
+# implementadas las firmas para muchisimos proveedores.
+
+# Para ejecutar la herramienta haremos lo siguiente:
+
+$ wafw00f <DOMAIN>
+

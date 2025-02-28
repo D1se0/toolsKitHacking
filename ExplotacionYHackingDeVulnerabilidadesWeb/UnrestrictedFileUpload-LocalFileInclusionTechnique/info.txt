@@ -1,0 +1,29 @@
+#Esta vulnerabilidad se solia llamar como "Local File Inclusion (LFI)" por que habia otro tipo de tecnica que se 
+#asemejaba a esta denominada "Remote File Inclusion (RFI)", 
+#pero este tipo de tecnicas han ido desapareciendo con el tiempo ya que solo se podia hacer con codigo "PHP" 
+#se ha ido actualizando el lenguaje, las funciones que lo hacian dejan de hacerlo, 
+#por lo que ha dia de hoy se denomina como una subida de ficheros sin restriccion.
+
+#Local File Inclusion (LFI) y Unrestricted File Inclusion (RFI)
+
+#La **inclusión de archivos locales (LFI)** y la **inclusión de archivos no restringida (RFI)** 
+#son vulnerabilidades de seguridad que afectan a aplicaciones web, principalmente cuando no se controlan adecuadamente 
+#las rutas de los archivos que se incluyen o cargan.
+
+### Local File Inclusion (LFI):
+#- **Qué es**: Permite a un atacante incluir archivos locales del servidor en la aplicación web.
+#- **Cómo funciona**: El atacante manipula la entrada de la aplicación (como un parámetro en la URL) 
+#para incluir archivos del sistema que normalmente no deberían ser accesibles.
+#- **Riesgos**: Acceso a archivos sensibles del sistema (como `/etc/passwd` en Linux) 
+#o ejecución de código malicioso si el atacante puede inyectar archivos PHP.
+
+### Unrestricted File Inclusion (RFI):
+#- **Qué es**: Permite a un atacante incluir archivos remotos (por ejemplo, desde un servidor externo) en la aplicación.
+#- **Cómo funciona**: El atacante manipula la entrada para cargar archivos desde un servidor externo, que podrían ser scripts maliciosos.
+#- **Riesgos**: Ejecución de código remoto en el servidor web, que puede comprometer el sistema y robar datos o tomar el control completo.
+
+### En resumen:
+#- **LFI**: Incluye archivos locales del servidor (archivos internos).
+#- **RFI**: Permite incluir archivos desde ubicaciones remotas, lo que es más peligroso y puede permitir ejecución de código malicioso.
+
+#Ambas vulnerabilidades se pueden mitigar mediante un manejo adecuado de las entradas del usuario y la validación estricta de las rutas de los archivos.

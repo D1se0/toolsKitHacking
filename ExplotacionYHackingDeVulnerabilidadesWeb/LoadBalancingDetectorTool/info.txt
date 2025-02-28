@@ -1,0 +1,12 @@
+# Un balanceador de carga es lo que esta por delante de los servidores, el cual se utiliza para cuando los usuarios 
+# envian un gran numero de peticiones o una carga de datos mas grande, estos balanceadores distribuyen esa carga por los 
+# demas servidores para que no se lo coma uno todo entero y asi evite problemas en general.
+
+# Si nosotros intentamos enumerar los servicios de un servidor, pero tiene un balanceador de carga por delante, lo que 
+# vamos a enumerar seran los servicios del balanceador de carga en vez de el del servidor y esto no nos interesa, pero lo 
+# que si podremos hacer sera identificar si tiene un balanceador de carga de la siguiente forma:
+
+$ lbd <DOMAIN>
+
+# Si pone FOUND significa que tiene un balanceador de carga, y nosotros podremos Bypassear este balanceador de carga.
+

@@ -1,0 +1,59 @@
+#En primer lugar "sqlmap" tiene que recibir una URL donde haya una serie de campos que va a 
+#identificar automaticamente como puntos de injeccion o podemos pasarle una peticion que hayamos 
+#interceptado con "Burp Suite" y que a nivel personal me parece la mejor opcion.
+
+#Por ejemplo, abriendo "Burp Suite", llendonod en la pagina de "Mutillidae" 
+#en la seccion de "SQL Injection - Bypass Login" vamos a poner un usuario y contraseña, 
+#pero antes de darle a enviar ponemos a "Burp Suite" a la escucha, 
+#por lo que una vez que este a la escucha le damos a enviar para que nos capture la peticion:
+
+#Y una vez que tengamos esta peticion la vamos a guardar en un fichero de la siguinte forma, 
+#seleccionaremos todo -> le daremos click derecho -> "Copy to File" -> seleccionamos donde queremos guardar el archivo -> 
+#ponemos como nombre algo como "request.burp.txt" -> "Save"
+
+#Y si todo ha ido bien veremos que nos creo el archivo el cual le pasaremos a "sqlmap" con toda esa captura para que nos haga la injeccion.
+
+#Por lo que pondremos lo siguiente:
+
+$ sqlmap -r request.burp.txt
+
+#Ahora que sabemos que ese parametro es vulnerable, podremos aprivechar eso para obtener informacion, 
+#si por ejemplo queremos hacer lo que estabamos haciendo antes para saber el usuario que esta dentras en la base de datos haciendo las consultas, 
+#podremos hacerlo de la siguiente forma:
+
+$ sqlmap -r request.burp.txt --ignore-redirects --technique B -p username --current-user
+
+#Con el parametro "--ignore-redirects" estamos diciendo que no nos redireccione a ningun sitio, para no tener que estar metiendo las respuestas.
+
+#Con el parametro "--technique B" estamos especificando el tipo de tecnica que queremos que utilice, 
+#en nuestro caso la "B" se asocia a un "Blind SQL Injection".
+
+#Con el parametro "-p username" indicamos que sea en el parametro "username" donde queremos que realice la injeccion.
+
+#Con el parametro "--current-user" le decimos que nos saque el usuario actual de la base de datos.
+
+#Ahora sabiendo el usuario, lo que podemos hacer es sacar la contraseña de este usuario de la siguiente forma:
+
+$ sqlmap -r request.burp.txt --ignore-redirects --batch --technique B -p username -U root@localhost --passwords
+
+#Le añadimos el "--batch" para que se ponga de forma automatica las preguntas que nos haga "sqlmap".
+
+#Para poder sacar el nombre de la base de datos, se podria hacer de la siguiente forma:
+
+$ sqlmap -r request.burp.txt --ignore-redirects --batch --dbs -v 3
+
+#Con el parametro "--dbs" lo que estamos haciendo es que nos saque el nombre de las bases de datos de "mysql"
+
+#Con el parametro "-v 3" establecemos un nivel "3" de verbose para que nos muestre mas informacion de lo que esta realizando.
+
+#Ahora para descubrir las tablas de esa base de datos "mutillidae", podremos hacer lo siguiente:
+
+$ sqlmap -r request.burp.txt --ignore-redirects --batch -D mutillidae --tables
+
+#Con el parametro "-D" especificamos la base de datos donde queremos que nos dumpee las tablas de la misma.
+
+#Si nosotros queremos sacar las columnas de una de las tablas descubiertas como por ejemplo "accounts":
+
+$ sqlmap -r request.burp.txt --ignore-redirects --batch -D mutillidae -T accounts --columns
+
+#Con el parametro "-T" especificamos la tabla la cual queremos dumpear la informacion solicitada.

@@ -1,0 +1,13 @@
+# Para instalarnos la herramienta y clonarnos el repositorio para utilizar la herramienta:
+
+$ git clone https://github.com/jmbr/halberd.git
+$ cd halberd/
+
+# Ahora para instalar la herramienta de forma correcta, haremos lo siguiente:
+
+$ sudo python2 setup.py install
+
+# Una vez instalado, ejecutaremos la herramienta para ver si hubiera algún balanceador de la siguiente forma:
+
+$ halberd <DOMAIN>
+

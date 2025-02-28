@@ -1,0 +1,1 @@
+https://swisskyrepo.github.io/PayloadsAllTheThings/File%20Inclusion/#wrapper-phpfilter

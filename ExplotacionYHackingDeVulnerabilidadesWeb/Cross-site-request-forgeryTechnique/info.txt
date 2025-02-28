@@ -1,0 +1,24 @@
+#Resumen de CSRF (Cross-site Request Forgery)
+
+#**CSRF** es una vulnerabilidad de seguridad que afecta a aplicaciones web, 
+#permitiendo a un atacante inducir a un usuario autenticado a realizar acciones no deseadas en una 
+#aplicación web en la que está autenticado. Esto puede llevar a la ejecución de comandos o solicitudes maliciosas sin el conocimiento del usuario.
+
+### Cómo funciona CSRF:
+#1. Un atacante crea un enlace o una solicitud maliciosa (por ejemplo, un formulario o una URL).
+#2. El atacante engaña al usuario para que haga clic en el enlace o cargue la solicitud maliciosa, 
+#mientras está autenticado en una aplicación web (por ejemplo, en su cuenta bancaria, en su red social, etc.).
+#3. La solicitud maliciosa se envía al servidor con las credenciales del usuario (como una cookie de sesión) 
+#sin que el usuario lo sepa, lo que puede resultar en la realización de acciones no autorizadas 
+#(como transferencias de dinero, cambio de contraseña, etc.).
+
+### Riesgos de CSRF:
+#- Modificación de configuraciones o datos sin el consentimiento del usuario.
+#- Realización de transacciones no autorizadas.
+#- Exposición de información sensible.
+
+### Mitigación de CSRF:
+#- Uso de tokens anti-CSRF: Un token único que se incluye en las solicitudes para garantizar que la solicitud provenga de una fuente legítima.
+#- Verificación de origen y cabeceras: Validar que las solicitudes provienen del mismo dominio (mediante cabeceras "Origin" o "Referer").
+#- Requerir autenticación adicional en acciones sensibles (por ejemplo, una contraseña o un código de seguridad adicional).
+

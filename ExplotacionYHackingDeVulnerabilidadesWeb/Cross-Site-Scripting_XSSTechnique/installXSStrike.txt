@@ -1,0 +1,13 @@
+#Una vez ejeuctado el script:
+
+$ ./installXSStrike.py
+
+#Tendremos que realizar el siguiente comando para ejecutar la herramienta:
+
+$ cd XSStrike/
+
+$ source xsstrikeEnviroment/bin/activate
+
+#Y para comprobarlo haremos lo siguiente:
+
+$ python3 xsstrike.py -h

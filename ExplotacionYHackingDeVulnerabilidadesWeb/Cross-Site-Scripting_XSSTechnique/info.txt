@@ -1,0 +1,11 @@
+#Esta vulnerabilidad sucede cuando los programadores de alguna manera cuando crearon dicha pagina web, 
+#este apartado en concreto, cuando nosotros incluimos texto y este texto se refleja en la 
+#pagina web como podemos observar con "www.google.com" no llega a realizar una 
+#sanitizacion adecuada sobre ciertos caracteres que nosotros podremos meter 
+#y que son caracteres reservados para el lenguaje de "HTML", 
+#con lo cual nosotros podremos incluir caracteres especiales como por ejemplo (<>"'`, etc...) las cuales estan incluidos en "HTML" 
+#y este mismo lo interpretara como un fragmento de codigo "HTML" por lo que lo representara como tal.
+
+#Y esto pasa cuando no es capaz de codificar dichos caracteres, 
+#escapar dichos caracteres de alguna manera para que no se interpreten como codigo "HTML", 
+#yo puedo aprovechar esto para injectar codigo que lo que haga sea que cambie la apariencia de dicha pagina web.

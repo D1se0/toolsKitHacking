@@ -1,0 +1,10 @@
+#Pulsaremos en la extension de FoxyProxy y le daremos a "Options"
+
+#Despues nos iremos a la pestaña llamada "Proxies" y le daremos a "Add"
+
+#En "Title" pondremos lo que queramos, en "Hostname" pondremos "127.0.0.1" y por ultimo en Port pondremos "8080", seguidamente le daremos a "Save"
+
+#Echo esto ya lo tendriamos listo, seleccionaremos el que hemos creado cuando BurpSuite este abierto y cuando lo cerremos seleccionamos el otro
+#ya que si no, no nos va a ir internet
+
+
