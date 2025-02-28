@@ -1,0 +1,4 @@
+#Pinchar en Iniciar Sesion mediante Google
+
+Email: clipdoce12345@gmail.com
+Password: ZGlzZW8xMjM0NQ== (hash)

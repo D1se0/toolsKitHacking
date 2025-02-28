@@ -1,0 +1,13 @@
+#Aqui se encuentra la lista completa de GoogleDorks para poder hacer busquedas mas exactas y con filtros.
+
+GoogleExample: site:youtube.com hacking
+
+GoogleExample2: site:youtube.com filetype:pdf
+
+GoogleExample3: "index of" / "chat/logs"
+
+GoogleExample4: filetype:sql "MySQL dump"
+
+GoogleExample5: filetype:sql "MySQL dump" (pass|password|passwd|pwd) site:<DOMINIO>
+
+GoogleExample6: inurl:index.php?id=

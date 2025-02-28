@@ -1,0 +1,11 @@
+#"Maltego" actua como transformador de la informacion a la hora de hacer consultas a las bases de datos (querys), 
+#consultas a distintos repositorios, etc... Mostrandonos la informacion obtenida de forma detallada y visual en un espacion de trabajo, 
+#con diferentes transformadores que te proporciona "maltego".
+
+$ ./installMaltego.sh
+
+$ maltego
+
+#Si no aparece lo de logearte no tendremos eso, para logearnos de forma manual, 
+#nos tendremos que ir al simbolo de arriba a la izquierda de "maltego" -> "Licence Manager" -> 
+#y seguir los pasos para obtener una licencia de la comunidad logeandote o registrandote

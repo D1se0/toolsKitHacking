@@ -1,0 +1,5 @@
+#Una de las herramientas que es muy util para combinarlo con "Censys" seria la llamada "zmap" 
+#que es como "nmap" pero mucho mejor optimizado para el escaneo de grandes volumenes de nodos en la red 
+#como por ejemplo podria ser "internet", que a la vez tambien esta herramienta utiliza otra herramienta llamada "zgrab"
+
+#Esta pagina "Censys" es muy parecida a "Shodan" ya que las busquedas siguen el mismo mecanismo y te muestra la informacion indexada de forma similar.

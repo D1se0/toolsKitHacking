@@ -1,0 +1,6 @@
+#Para realizar esta busqueda "historica" y poder sacar informacion determinada, 
+#podremos utilizar una pagina llamada "archive.org" es gente que ha "harcodeado" 
+#informacion sensible de "logs" u otro tipo de cosas y es donde podremos obtener credenciales antiguas.
+
+#Esta pagina lo que hace es recorrerse todo internet haciendo "Snapshots" de las paginas 
+#y situandolos en un cronograma de todo lo que ha recorrido dicha pagina, por lo que esto recopila mucha informacion.
