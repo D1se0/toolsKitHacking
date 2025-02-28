@@ -23,7 +23,7 @@ git clone https://github.com/D1se0/toolsKitHacking.git
 cd toolsKitHacking
 ```
 
-### 📌 Nota: Algunas herramientas requieren permisos de superusuario. Asegúrate de ejecutarlas con sudo cuando sea necesario.
+###### 📌 Nota: Algunas herramientas requieren permisos de superusuario. Asegúrate de ejecutarlas con sudo cuando sea necesario.
 
 ## 📚 Uso
 Cada herramienta se encuentra bien documentada y con ejemplos en los archivos de info.txt.
@@ -35,5 +35,5 @@ El uso indebido de estas herramientas puede ser ilegal. El autor no se hace resp
 ## 🤝 Contribuciones
 ¡Las contribuciones son bienvenidas! Si tienes una herramienta interesante para agregar, abre un Pull Request o crea un Issue.
 
-### 💻 Sígueme en redes sociales y mantente actualizado
-### 📩 Para cualquier duda o sugerencia, contáctame en [ciberseguridad12345@gmail.com].
+💻 Sígueme en redes sociales y mantente actualizado
+📩 Para cualquier duda o sugerencia, contáctame en [ciberseguridad12345@gmail.com].
