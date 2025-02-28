@@ -1,0 +1,4 @@
+# Vamos a ver la herramienta llamada Changeme que se encarga de buscar contraseñas por defecto en diferentes servicios 
+# que tenemos expuestos en nuestra infraestructura de red.
+
+# Lo instalaremos ejecutando el script installChangeme.sh

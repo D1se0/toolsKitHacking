@@ -1,0 +1,7 @@
+# PowerView.ps1 es un suit/conjunto de herramientas para todas las fases de un pentest de un ejercicio de seguridad o 
+# de hacking etico para normalmente realizar recopilacion de informacion, explotacion, analisis de vulnerabilidades, 
+# etc... Sobre equipos de Microsoft todas las cosas que hace estan implementadas en PowerShell por lo que es muy util 
+# para nosotros.
+
+# En el archivo llamado PowerViewUpdate.ps1 estará arreglado de tal forma que no lo detecte la mayoría de antivirus, para que podamos trabajar con el.
+

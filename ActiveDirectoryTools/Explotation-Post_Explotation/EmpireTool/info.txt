@@ -1,0 +1,6 @@
+# Un buen framework para explotacion y postexplotacion en Windows que en su momento fue el oficial y muy famoso.
+
+# Esta dedeicado al PowerShell para automatizar todo, pero el propio creador ya lo tiene archivado el proyecto y hace 
+# ya un tiempo que no se actualiza, por lo que todas las herraminetas de seguridad ya lo van a detectar y sera 
+# imposible de usar a no ser que se desactive las herramientas, pero esta bien que se conozca.
+

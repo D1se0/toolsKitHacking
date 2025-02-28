@@ -1,0 +1,28 @@
+# Esta herramienta necesita unas credenciales validas para poder enumerar desde una terminal la SAM o este tipo de información y dependiendo de que información queramos enumerar tendrá que tener privilegios de administrador.
+
+# Conexión con la maquina victima "WS01" y con las credenciales de un usuario normal.
+
+$ rpcclient -U "corp\empleado1%Passw0rd2" WS01
+
+# Comandos dentro del entorno de "rpcclient":
+
+## Enumerar privilegios del sistema:
+
+$ enumprivs
+
+## Enumerar usuarios del sistema de ActiveDirectory (Privilegios de administrador)
+
+$ enumdomusers
+
+## Enumerar grupos (Privilegios de administrador)
+
+$ enumalsgroups builtin
+
+## Ver que usuario pertenecen a que grupo (Privilegios de administrador)
+
+$ queryaliasmem builtin <RID>
+
+## Ver en texto plano los "SID" (Privilegios de administrador)
+
+$ lookupsids <SID>
+

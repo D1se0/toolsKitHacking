@@ -1,0 +1,19 @@
+# No viene instalada por defecto en kali por lo que tendremos que realizar lo siguiente para instalarla, adelanto que 
+# esta herramienta trae varias tecnicas de frameworks famosas para la evasion de defensas, por eso es tan famosa
+
+$ git clone https://github.com/Screetsec/TheFatRat.git
+$ cd TheFatRat
+$ chmod +x setup.sh
+$ sudo ./setup.sh
+
+# Mientras se esta instalando nos aparecera mas adelante una opcion la cual le daremos al 2
+
+# Despues nos aparecera esta otra opcion le daremos a ENTER seguidamente la "y"
+
+# Y con esto ya tendremos la herramienta instalada de forma correcta.
+
+# Por lo que vemos podemos backdoorizar un binario de muchas formas en este framework, podemos hacerlo de diferentes 
+# formas con las diferentes herramientas que nos proporciona, incluso en la opcion 05 podemos ver que podemos generar 
+# una aplicacion como instagram para que cuando se ejecute, tambien se ejecute un backdoor que estara por detras para 
+# crearnos una reverse shell
+

@@ -1,0 +1,9 @@
+# Generalmente es mejor utilizar codigos propios para evadir defensas en una organizacion con un contrato firmado 
+# previamente, ya que muchas veces no sabemos el codigo que estamos ejecutando por detras y el cliente al que le estamos 
+# haciendo la auditoria a lo mejor no quiere que fastidiemos algo de su organizacion por lo que es mejor conocer el 
+# codigo que se esta generando y saber como funciona para poder ejecutarlo con mas seguridad ya que en este caso somos 
+# unos profesionales en este ambito, hay una herramienta bastante famosa llamada Veil.
+
+# Esta herramienta lo que hace es generar payloads para poder evadir las defensas de los antivirus mas conocidos a fecha 
+# de hoy, pudiendo saber asi que payload se esta generando.
+

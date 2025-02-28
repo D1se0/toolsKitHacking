@@ -1,0 +1,38 @@
+# Con estas tecnicas de recopilacion remota nos vamos a enforcar en esa base de datos que tiene el Domain Controller que # se denomina NTDS.dir y para interactuar con ella necesitaremos hacer una llamada remota al DC utilizando el protocolo 
+# LDAP.
+
+# Vamos a utilizar un modulo que suele venir en casi todos los soportes de dominio de un servidor, el cual es de forma 
+# legitima y no lo va a detectar como malicioso como por ejemplo lo puede hacer PowerView, vamos a utilizar el equipo 
+# WS02 para utilizar este modulo y el equipo WS01 para utilizar PowerView y ver las diferencias.
+
+# Por ejemplo si nosotros queremos obtener informacion del dominio de forma muy detallada lo podremos hacer con el 
+# siguiente comando:
+
+(PowerShell)
+
+$ Get-ADDomain
+
+# Pero este comando solo ira en nuestro DC ya que cuando se crea el dominio se instala una libreria .dll la cual tiene 
+# registrado este comando, pero en los equipos normales no lo va a reconocer, por lo que tendremos que obtener esa 
+# libreria para poder obetenr la informacion del dominio en un equipo normal.
+
+# Si nosotros en el DC vamos a la siguiente ruta de carpetas:
+
+
+$ C:\Windows\Microsoft.NET\assembly\GAC_64\Microsoft.ActiveDirectory.Management\v4.0_10.0.0.0__31bf3856ad364e35\
+
+# Dentro de esta encontraremos un archivo llamado Microsoft.ActiveDirectory.Management.dll que es el que importa dicha 
+# libreria para que ese comando anterior funcione.
+
+# Por lo que podemos hacer es crear como atacante nosotros un Windows Server promocionarlo a un servidor de dominio y 
+# obtener esta .dll para asi pasarnoslo a nuestro equipo WS02.
+
+# Una vez que hayamos obtenido el archivo lo pasaremos al escritorio del equipo Victima.
+
+(PowerShell)
+
+$ cd .\Desktop\
+$ Import-Module .\Microsoft.ActiveDirectory.Management.dll
+$ Get-ADDomain
+
+# Y con esto ya tendremos el modulo importado en nuestra PowerShell de forma sencilla.

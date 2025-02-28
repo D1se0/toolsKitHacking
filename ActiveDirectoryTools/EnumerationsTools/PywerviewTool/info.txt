@@ -1,0 +1,16 @@
+# Si quiero obtener informacion sobre el Controlador de Dominio (DC) podremos hacerlo de la siguiente forma:
+
+$ pywerview get-netdomaincontroller -u empleado1 --dc-ip 192.168.5.5 -p Passw0rd2
+
+# Para obtener usuarios:
+
+$ pywerview get-netuser -u empleado1 --dc-ip 192.168.5.5 -p Passw0rd2
+
+# Para enumerar los grupos:
+
+$ pywerview get-netgroup -u empleado1 --dc-ip 192.168.5.5 -p Passw0rd2
+
+# Para enumerar las GPOs:
+
+$ pywerview get-netgpo -u empleado1 --dc-ip 192.168.5.5 -p Passw0rd2
+

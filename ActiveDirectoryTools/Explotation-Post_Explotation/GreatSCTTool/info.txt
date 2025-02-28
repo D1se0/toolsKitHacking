@@ -1,0 +1,29 @@
+# Se utilizar para generar payloads para poder evadir los antivirus o las herramientas de seguridad que se denomina 
+# GreatSCT
+
+# Esta herramienta se puede generar payloads que son compatibles con metasploit, tambien son compatibles con diferentes 
+# herramientas de un sistema operativo Windows que es lo mas interesante.
+
+# Lo instalaremos de la siguiente forma:
+
+$ git clone https://github.com/GreatSCT/GreatSCT.git
+$ cd GreatSCT/
+$ cd setup
+$ sudo ./setup.sh -c
+
+# Esto puede tardar un rato, a lo largo de la instalacion nos apareceran algunas pestañas, a primera de ellas le 
+# daremos a ENTER(no) -> TAB -> ENTER(Ok).
+
+# Despues nos aparecera una ventanita en la que tendremos que darle a Ok y continuara la instalacion.
+
+# Actualizaremos la herramienta para que se nos importe las cosas:
+
+$ cd ../config
+$ sudo python3 update.py
+
+# Lo ejecutaremos de la siguiente forma:
+
+$ sudo GreatSCT.py
+
+# Con esto ya podremos generar payloads y utilizar la herramienta.
+

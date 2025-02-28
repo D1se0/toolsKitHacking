@@ -1,0 +1,15 @@
+
+# Esta tecnica consiste en ser capaces de coger una contraseña y propagarla por todos los usuarios del dominio para 
+# saber que usuarios coinciden y tienen esa contraseña asociada, pero es una tecnica muy intrusiva y en entornos reales 
+# se hay llegado a utilizar por equipos de Red Team y han llegado a bloquear todas las cuentas de usuarios ya que 
+# dependiendo de como este configurado tendra un numero limitado de intentos.
+
+La cargaremos en un PowerShell de la siguiente forma:
+
+(PowerShell)
+
+$ . .\passwordspray.ps1
+
+# La utilizaremos de la siguiente forma:
+
+$ Invoke-DomainPasswordSpray -UserList .\users.txt -Password "password"

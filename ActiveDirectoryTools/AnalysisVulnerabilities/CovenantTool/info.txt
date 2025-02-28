@@ -1,0 +1,60 @@
+# Un framework mucho mejor que ha surgido realtivamente hace poco que se llama Covenant.
+
+# Esta escrito en .NET y para su instalacion tendremos que irnos en la seccion de Wiki y en la parte de Installation:
+
+$ git clone --recurse-submodules https://github.com/cobbr/Covenant
+
+$ cd /Covenant/Covenant
+$ dotnet run
+
+# Y con esto ya estaría, nos tendremos que ir a nuestro localhost en el puerto 7443
+
+===================covenantPage.sh====================
+
+#!/bin/bash
+
+# Enlace que se abrirá
+LINK="https://github.com/cobbr/Covenant"
+
+# Función para instalar paquetes necesarios
+instalar_dependencias() {
+    echo "[+] Verificando dependencias..."
+    
+    # Verificar si xdg-open está disponible
+    if ! command -v xdg-open &> /dev/null; then
+        echo "[!] xdg-open no está instalado. Instalándolo..."
+        sudo apt update && sudo apt install -y xdg-utils
+    else
+        echo "[+] xdg-open ya está instalado."
+    fi
+
+    # Verificar si Firefox está disponible (u otro navegador)
+    if ! command -v firefox &> /dev/null; then
+        echo "[!] Firefox no está instalado. Instalándolo..."
+        sudo apt update && sudo apt install -y firefox-esr
+    else
+        echo "[+] Firefox ya está instalado."
+    fi
+}
+
+# Función para cerrar Firefox si está abierto
+cerrar_firefox() {
+    if pgrep -x "firefox" > /dev/null; then
+        echo "[+] Firefox está abierto. Cerrándolo..."
+        pkill -x firefox
+        sleep 2  # Esperar unos segundos para asegurarse de que se cierre
+    else
+        echo "[+] Firefox no está abierto."
+    fi
+}
+
+# Función para abrir el enlace
+abrir_enlace() {
+    echo "[+] Abriendo el enlace en el navegador..."
+    xdg-open "$LINK"
+}
+
+# Ejecutar funciones
+instalar_dependencias
+cerrar_firefox
+abrir_enlace

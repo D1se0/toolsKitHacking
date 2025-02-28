@@ -1,0 +1,67 @@
+# ZAP (Zed Attack Proxy) es una herramienta de código abierto desarrollada por OWASP para la seguridad en aplicaciones 
+# web. Se usa para detectar vulnerabilidades en sitios web y APIs de manera automatizada y manual.
+
+# Funciones principales:
+
+# Proxy Interceptador: Permite analizar y modificar las solicitudes y respuestas HTTP.
+# Escaneo Activo y Pasivo: Identifica vulnerabilidades como SQL Injection, XSS, CSRF, etc.
+# Fuzzing: Prueba entradas con datos aleatorios para detectar fallos.
+# Spidering: Explora automáticamente todas las URLs de una web.
+# Automatización: Compatible con scripts y APIs REST para integrarlo en pruebas de seguridad.
+
+# Es ideal para pentesters y analistas de seguridad en la evaluación de aplicaciones web.
+
+=================zaproxyPage.sh======================
+#!/bin/bash
+
+# Enlace que se abrirá
+LINK="https://github.com/zaproxy/zaproxy"
+
+# Función para instalar paquetes necesarios
+instalar_dependencias() {
+    echo "[+] Verificando dependencias..."
+    
+    # Verificar si xdg-open está disponible
+    if ! command -v xdg-open &> /dev/null; then
+        echo "[!] xdg-open no está instalado. Instalándolo..."
+        sudo apt update && sudo apt install -y xdg-utils
+    else
+        echo "[+] xdg-open ya está instalado."
+    fi
+
+    # Verificar si Firefox está disponible (u otro navegador)
+    if ! command -v firefox &> /dev/null; then
+        echo "[!] Firefox no está instalado. Instalándolo..."
+        sudo apt update && sudo apt install -y firefox-esr
+    else
+        echo "[+] Firefox ya está instalado."
+    fi
+}
+
+# Función para cerrar Firefox si está abierto
+cerrar_firefox() {
+    if pgrep -x "firefox" > /dev/null; then
+        echo "[+] Firefox está abierto. Cerrándolo..."
+        pkill -x firefox
+        sleep 2  # Esperar unos segundos para asegurarse de que se cierre
+    else
+        echo "[+] Firefox no está abierto."
+    fi
+}
+
+# Función para abrir el enlace
+abrir_enlace() {
+    echo "[+] Abriendo el enlace en el navegador..."
+    xdg-open "$LINK"
+}
+
+# Ejecutar funciones
+instalar_dependencias
+cerrar_firefox
+abrir_enlace
+
+================installZaproxy.sh=================
+#!/bin/bash
+
+echo "Instalando Zaproxy..."
+sudo apt install zaproxy

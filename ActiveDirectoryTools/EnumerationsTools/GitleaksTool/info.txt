@@ -1,0 +1,11 @@
+# Esta herramienta se utiliza para poder descubrir contraseñas de un repositorio de GitHub, pero no solo los commits 
+# actuales, si no tambien los antiguos, ya que era muy comun el echo de que un usuario colgara en github un archivo de 
+# configuracion en el que tuviera algunas credenciales o contraseñas hardcodeadas y cuando se diera cuenta lo eliminaba # y hacia otro nuevo commit pero el anterior todavia se puede observar, pues esto es lo que hace esta herramienta 
+# realizar toda esta busqueda en busca de alguna clave o contraseña, no viene por defecto instalada en Kali.
+
+# Instalaremos la herramienta Gitleak ejecutando el script installGitleak.sh
+
+# Para detectar las diferentes vulnerabilidades o filtraciones haremos lo siguiente:
+
+$ gitleaks detect -v
+

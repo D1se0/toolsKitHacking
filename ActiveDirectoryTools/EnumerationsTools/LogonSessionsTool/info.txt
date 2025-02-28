@@ -1,0 +1,11 @@
+# Vemos que se nos descarga un ZIP, por lo que lo tendremos que descomprimir, una vez echo eso, tendremos una carpeta 
+# con unos ejecutables, el que nos interesa es el llamado logonsessions.exe.
+
+# Abriremos un PowerShell como Administrador y lo ejecutaremos de la siguiente forma:
+
+$ .\logonsessions.exe
+
+# Para ver todas las logon sessions asociadas a los procesos de cada una...
+
+$ .\logonsessions.exe -p
+

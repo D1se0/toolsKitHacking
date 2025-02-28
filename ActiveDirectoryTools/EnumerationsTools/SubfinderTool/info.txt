@@ -1,0 +1,10 @@
+# Esta herramienta busca de forma pasiva que eso es muy importante un subdominio desde ese dominio, ya que si tiene 
+# herramientas de seguridad y realizaramos fuerza bruta nos podrian detectar, pero esta herramienta lo hacer de forma 
+# pasiva con ayuda de la informacion de internet.
+
+# Lo instalaremos ejecutando el script installSubfinder.sh
+
+# Si queremos enumerar los subdominios de una organización, pondremos lo siguiente:
+
+$ subfinder -d hackthissite.org 
+

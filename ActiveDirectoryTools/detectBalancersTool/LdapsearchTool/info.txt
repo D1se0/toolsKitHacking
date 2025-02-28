@@ -1,0 +1,22 @@
+# La herramienta llamada ldapsearch la cual mediante unas credenciales nos permitira buscar en la base de datos mediante 
+# LDAP como haciamos anteriormente de la siguiente forma:
+
+# Primero vamos hacerlo de forma anonima con LDAP pero en entornos de produccion casi nunca esta activo, ya que podria 
+# ser un riesgo de seguridad enorme.
+
+$ ldapsearch -x -H ldap://192.168.5.5 -D "" -w "" -b "DC=corp,DC=local"
+
+# Con -x le indicamos el modo de autenticación (En este caso es basico) Con -H le indicamos el host donde se encuentra la 
+# base de datos a la cual queremos interactuar que seria el DC. Con -D le indicamos el nombre de usuario dentro del 
+# dominio (Lo dejamos vacio para que entre como anonimo) Con -w le indicamos la contraseña del usuario, pero tambien lo 
+# dejaremos vacio por el acceso anonimo. Con -b le indicamos con que partes o con que objetos del dominio queremos 
+# interactuar, que en este caso le estamos indicando que interactue con los objetos que haya en corp.local.
+
+# Si tuviéramos credenciales de algún usuario, se podría hacer de la siguiente forma:
+
+$ ldapsearch -x -H ldap://192.168.5.5 -D "CORP\empleado1" -w "Passw0rd2" -b "DC=corp,DC=local"
+
+# Si queremos filtrar información se puede hacer de la siguiente forma:
+
+$ ldapsearch -x -H ldap://192.168.5.5 -D 'CORP\empleado1' -w 'Passw0rd2' -b "CN=Users,DC=corp,DC=local"
+

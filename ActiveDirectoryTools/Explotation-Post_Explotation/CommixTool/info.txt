@@ -1,0 +1,13 @@
+# Esta herramienta denominada commix es una de las referencias cuando podemos hablar de injecciones de comandos, es 
+# bastante famosa y se ha utilizado en charlas de conferencias dedicadas al hacking, no viene por defecto en Kali.
+
+# La instalaremos ejecutando el script installCommix.sh
+
+# Si queremos ver las diferentes vulnerabilidades que tiene la web, lo podremos hacer asi:
+
+$ commix -u http://192.168.5.211:1335/login.php --level 3
+
+# Si queremos hacerlo con una Cookie, será de la siguiente forma:
+
+$ commix -u http://192.168.5.211:1335/vulnerabilities/exec --cookie="PHPSESSID=208meqdlm53fcn13t35sbrbqf4; security=low"
+

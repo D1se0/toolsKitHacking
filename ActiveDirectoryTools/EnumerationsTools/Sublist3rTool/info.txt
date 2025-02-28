@@ -1,0 +1,6 @@
+# La instalaremos con el script llamado installSublist3r.sh
+
+# Para enumerar subdominios de una organización, lo haremos de la siguiente forma:
+
+$ sublist3r -d hackthissite.org -v
+

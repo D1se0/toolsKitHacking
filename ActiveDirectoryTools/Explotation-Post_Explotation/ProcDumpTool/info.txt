@@ -1,0 +1,8 @@
+# Antes de realizar todo esto, lo que vamos hacer es Crear un archivo de volcado de lsass, si nos vamos al 
+# Administrador de tareas -> Detalles -> buscamos el proceso lsass.exe -> click derecho y pinchar en Crear archivo de 
+# volcado.
+
+# Desde mimikatz con el archivo .dmp del lsass haremos el siguiente comando:
+
+$ sekurlsa::minidump /$PATH/lsass.DMP
+
