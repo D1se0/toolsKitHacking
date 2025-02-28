@@ -1,0 +1,22 @@
+==NOTA==
+
+Tendremos que tener el Office ya instalado sin activar.
+
+==Iniciamos un powerShell como Admin==
+
+Primero abrimos el PowerShell como administrador dandole click izquierdo en el mismo y Ejecutar como administrador, 
+esto se nos abrira con los privilegios maximos para realizar lo siguiente.
+
+==Ejecución de comando (Activación)==
+
+URL = https://massgrave.dev
+
+Ejecutamos el siguiente comando...
+
+$ irm https://get.activated.win | iex
+
+Esto nos abrira otra termina en el que nos dara varias opciones a elegir, por lo que le daremos al numero 2, 
+esto nos abrira otra ventana de terminal con otro menu y en el segundo menu le damos al numero 1
+
+Una vez echo eso, se nos hara el proceso automaticamente y acabara con un mensaje poniendo que ya se 
+activo el office de forma permanente en verde y con esto ya tendriamos el office activado.

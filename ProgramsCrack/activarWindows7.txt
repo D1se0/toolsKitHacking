@@ -1,0 +1,3 @@
+Abrir CMD como administrador
+
+$ slmgr -rearm
