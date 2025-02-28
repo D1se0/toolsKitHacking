@@ -1,0 +1,16 @@
+#Cuando nosotros sabemos la IP de un "nodo" ya sea en nuestra red o en una red diferente, pero no su direccion fisica ("MAC"), 
+#nosotros utilizamos el protocolo "ARP", de manera que mandamos un paquetito a todos los "nodos" de la red preguntandoles por 
+#quien tiene esta direccion IP y cual es tu direccion fisica y ese "nodo" nos responde yo tengo esa direccion IP y esta es mi direccion fisica, 
+#yo cojo esa informacion y la guardo en una "cache" en una tabla dentro de mi sistema operativo 
+#de manera que si tengo que volver a mandarle informacion a esa misma direccion IP, 
+#no tengo que volver a preguntarle por que ya la tendriamos almacenada.
+
+#La cosa es que este proceso no tiene por asi decirlo una autenticacion y nosotros como atacantes le podemos decir al "Router" 
+#que nosotros somos esa direccion IP y le damos nuestra direccion fisica todo de forma falsa, 
+#aqui en este "ARP Replay" podremos falsificar todo esto.
+
+#Ahora la tecnica de "ARP Spoofing" consiste en asociar esa direccion "MAC" de la maquina atacante 
+#a la direccion "MAC" del "Router", de manera que cuando este maquina quiera hacer una peticion 
+#por ejemplo a "google" piense que esta realizandola al "Router" pero en realidad nos la esta realizando a nosotros 
+#y nosotros se la reenviamos a "google", "google" nos manda la peticion a nosotros y nosotros se la reenviamos a la maquina victima, 
+#para que se piense que esta estableciendo una comunicacion legitima cuando no es asi.

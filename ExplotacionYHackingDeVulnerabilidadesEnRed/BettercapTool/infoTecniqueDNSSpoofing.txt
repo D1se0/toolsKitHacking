@@ -1,0 +1,12 @@
+#Con esta tecnica lo que podemos hacer es envenenar esas peticiones "DNS" de cuando alguien intenta buscar por ejemplo "www.youtube.com" 
+#y en vez de pasarlo al "Router" nos lo pasa a nosotros, pero cuando pregunte el "Router" al servidor "DNS" 
+#en el cual nosotros estaremos en medio que donde esta la IP de dicho dominio, 
+#nosotros responderemos a tal IP siendo la del web server del atacante y redirigiendole a una pagina del atacante a nuestro beneficio propio.
+
+#Por lo que el atacante podria simular una pagina identica a la de "youtube" pero que en realidad no es la legitima y 
+#es donde el usuario lo que meta, nos va a llegar a nosotros.
+
+#Primero lo que tendremos es que situarnos en medio de la comunicacion de la maquina "windows" 
+#que lo haremos mediante la tecnica del "ARP Spoofing", cuando la maquina victima intente resolver el dominio de 
+#por ejemplo "facebook.com" nos llegara a nosotros y le responderemos con una 
+#direccion IP falsa que le lleve a la pagina que nosotros hemos creado de forma automatica.

@@ -1,0 +1,92 @@
+#Lo que vamos hacer es modificar el trafico de red, los paquetes de red originales que se estan intercambiando entre 
+#los 2 "nodos" legitimos de la red.
+
+#No solamente vamos a mandar paquetes falsos, si no que vamos a modificar los paquetes 
+#originales para que la informacion que contienen sea diferente de manera que podamos engañar alguno de los puntos de la conexion.
+
+#Para meternos en el entorno y poder utilizar la herramienta de Polymorph:
+
+$ source EnviromentPolymorph/bin/activate
+
+$ polymorph
+
+#Si el entorno que viene por defecto llamado "EnviromentPolymorph" diera algun problema, instalar uno nuevo con sus requisitos.
+
+#Instalacion:
+
+$ ./installEnviromentPolymorph.py
+
+$ polymorph
+
+#Lo que primero haremos con esta herramienta sera capturar un paquete de red, 
+#dicha herramienta lo que hara sera generar una "plantilla" donde nosotros podremos 
+#modificar dicho paquete de red donde podremos ejecutar funciones de codigo en "python" sobre los 
+#nuevos paquetes de red que se esten intercambiando entre 2 maquinas, de manera que nosotros podamos modificar su contenido a nuestro gusto.
+
+#Para hacer un ARP Spoofing con dicha herramienta entre 2 maquinas, seria de la siguiente forma:
+
+$ spoof -t <IP_VICTIM_1> -g <IP_VICTIM_2>
+
+#Con el "-t" especificamos el "target"
+#Con el "-g" especificamos el "gateway", pero en este caso como no pasa por un "Router" 
+#ponemos la IP de la maquina a la cual se comunica directamente.
+
+#Si queremos que "Polymorph" se ponga a capturar en concreto paquetes de "WINREG" podremos hacerlo de la siguiente forma:
+
+$ capture -f winreg
+
+#Si fuera de "ICPM" seria asi:
+
+$ capture -f icmp
+
+#Ahora tendremos que generar trafico del mismo para que los capture, una vez que lo hayamos echo tendremos que darle a "Ctrl+C"
+#y podremos visualizar los paquetes capturados por dicha herramienta
+
+#Seleccionamos la plantilla/paquete que queramos:
+
+$ template 258
+
+#Hay muchas veces que "polymorph" no te detecta como campo el texto que se esta intercambiando entre los registros, 
+#por lo que no te lo va a mostrara directamente en la herramienta, pero si nosotros ejecutamos el siguiente comando:
+
+$ dump
+
+#Podremos ver que nos vuelca todos los "bytes" de este paquete y aqui si que podremos ver la cadena de texto de la informacion que se ha enviado.
+
+#Y esta cadena de "bytes" en la herramienta se asocia en el protocolo "DCERPC" en la seccion de "FT_HEX payload_stub_data=" 
+#podremos ver una cadena de "hexadecimal" el cual se asocia con el "dump" que hemos echo, 
+#solo tendriamos que detectar en "hexadecimal" cual es el valor que se esta intercambiando que ya te lo dice en el propio "dump".
+
+#Ahora vamos acceder a la capa "winreg":
+
+$ layer winreg
+
+#Podemos crear un campo con el siguiente comando:
+
+$ field -a winreg_value
+
+#Cuando le demos a "ENTER" nos dira "polymorph" que le especifiquemos el "byte" de comienzo donde queremos 
+#añadir esto que seria donde esta la informacion que se esta intercambiando "testvalue" en nuestro caso, 
+#para seleccionar desde que "byte" a que "byte" comienza y termina, 
+#si nos vamos a "wireshark" y seleccionamos el paquete en la informacion del paquete donde 
+#esta la "data" del registro que se esta intercambiando, abajo a la derecha aparece un 
+#numero seguido de un "-" con otro numero y esos serian los "bytes" en mi caso seria "278-305".
+
+#Pero nosotros queremos coger la primera letras que seria la "t" y la ultima que seria la "e", 
+#por lo que habria que contar hasta la "t" en mi caso seria el "282" y hasta la letra "e" seria en el "300", 
+#por lo que le diremos a "polymorph" el primer "byte" seria el "282" y cuando nos vuleva a 
+#pedir intoducir otro numero sera el "byte" en el que termina que en mi caso seria el "300" aproximadamente.
+
+#Despues nos dira de que queremos que sea el tipo de campo, en nuestro caso de "bytes" por lo que elegiremos el "4".
+
+#Y con esto ya nos habria agregado el campo, por lo que si le damos a "show" veremos nuestro nuevo campo llamado "winreg_value".
+
+#Ahora llendonos atras con "back" podremos crear una funcion programandola para que haga lo que queramos con:
+
+$ functions -a winreg_set_value -e nano
+
+#Una vez creada, volveremos a interceptar para modificar ese paquete a tiempo real de la siguiente forma:
+
+$ intercept
+
+#Y ya solo tendriamos que generar trafico de red de dicho protocolo y listo.

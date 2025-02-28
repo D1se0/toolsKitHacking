@@ -1,0 +1,27 @@
+#Esta herramienta una de sus principales funciones es la de emular una pagina web que quieras totalmente exacta a la que elijas, 
+#reconstruyendo su codigo fuente para que sea una copia y con ello que se pueda hacer una especie de "phishing".
+
+#Si al ejecutar la herramienta diera algun error, solo tendremos que ejecutar lo siguiente:
+
+$ ./errorSolution.py
+
+#Para crear una pagina Phishing, haremos lo siguiente:
+
+$ setoolkit
+
+#Le daremos al numero "1" y despues al numero "2", Seguidamente le daremos al numero "5" y despues al numero "3".
+
+#Nos dira que si la IP que vemos reflejada en el "prompt" es la correcta, ya que la detecta automaticamente, 
+#de ser asi le dariamos a "ENTER" de lo contrario metemos nosotros la IP y "ENTER".
+
+#Ahora nos pedira la pagina la cual queremos replicar, por lo que buscaremos "facebook.es", 
+#dentro del login de "facebook" le daremos click derecho en la pagina -> "Save Page As ..." -> 
+#cambiar la parte de "Web Page, Complete" por "Web Page, HTML Only" -> lo renombramos como index.html -> "Save"
+
+#Metemos la ruta donde este ese "index.html", despues nos aparecera que importemos la "URL" 
+#pondremos "facebook.es" para que nos aparezca este dominio y le daremos a "ENTER", 
+#si tenemos "apache2" corriendo nos dira que si lo queremos desactivar para que lo active el, 
+#le daremos a "y", en tal caso de que no estuviera activado, ya estaria lista la herramienta.
+
+#Por lo que si visitamos "http://localhost/" nos dira un link de que se movio la pagina a otro sitio 
+#y esto nos redirigira a la pagina "phishing" de "facebook.es" exactamente igual a la original

@@ -1,0 +1,12 @@
+scapy
+pyshark
+dill
+prompt-toolkit==3.0.39
+hexdump
+termcolor
+construct
+netaddr
+NetfilterQueue
+pydivert
+texttable
+dateutils

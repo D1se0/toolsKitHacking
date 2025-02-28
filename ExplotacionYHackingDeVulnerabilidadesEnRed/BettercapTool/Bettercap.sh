@@ -1,0 +1,3 @@
+#!/bin/bash
+
+bettercap -h
