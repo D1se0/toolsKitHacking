@@ -1,0 +1,8 @@
+
+$ /usr/share/metasploit-framework/tools/exploit/pattern_create.rb -l <NUMBER>
+
+$ /usr/share/metasploit-framework/tools/exploit/pattern_offset.rb -q <DIRECTION_MEMORY>
+
+$ /usr/share/metasploit-framework/tools/exploit/nasm_shell.rb && jmp esp
+
+$ objdump -d <FILE> | grep "<JMP ESP>" -i
