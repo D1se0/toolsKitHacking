@@ -1,0 +1,63 @@
+#Esta herramienta se utiliza para automatizar mucho mas esa bsuqueda de informacion publica para encontrar informacion sensible o que nos sea util
+
+$ ./Recon-ng.sh
+
+#Inicialmente en la herramienta no vamos a tener ningun modulo instalado, por lo que empezaremos a instalar algunos modulos
+
+$ marketplace search
+
+#Con esto nos mostrara todos los modulos disponibles que hay en la herramienta.
+
+#Si queremos filtrar por algun modulo que nos interese mas como por ejemplo paginas como "shodan", herramientas, etc...
+
+$ marketplace search whois
+
+#Si queremos saber que hace un modulo, para obtener esta informacion
+
+$ marketplace info recon/domains-contacts/whois_pocs
+
+$ marketplace install recon/domains-contacts/whois_pocs
+
+#Con esto instalaremos dicho modulo, si vemos cuales son los modulos que tenemos instalados
+
+$ modules search
+
+#Para cargar el modulo
+
+$ modules load recon/domains-contacts/whois_pocs
+
+#Para ver como utilizar la herramienta pondremos:
+
+==============================
+
+#Opcion1:
+
+$ options list
+
+#Opcion2:
+
+$ info
+
+============================
+
+#Configurar la herramienta:
+
+$ options set SOURCE microsoft.com
+
+#Ahora para ejecutar la herramienta con el valor ya establecido, solamente tendremos que poner:
+
+$ run
+
+#Exportar resultados en general:
+
+$ marketplace install reporting/html
+
+$ modules load reporting/html
+
+$ options list
+
+$ options set CREATOR d1se0
+
+$ options set CUSTOMER orgX
+
+$ options set FILENAME /home/d1se0/Desktop/results.html

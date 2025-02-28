@@ -1,0 +1,67 @@
+#Esta herramienta nos proporciona informacion de algun dominio que queramos investigar, 
+#proporcionandole si queremos en la pagina en la que queremos que busque para que sea una busqueda mas exacta 
+#como por ejemplo que busque por "shodan" y despues que tipo de navegador queremos que utilice a la hora de que busque, 
+#es una herramienta muy completa
+
+#Ejemplos de utilizarla:
+
+$ theHarvester -d microsoft.com -b baidu -l 100
+
+#Con el "-d" especificamos el dominio al que queremos investigar.
+#Con el "-b" especificamos la fuente donde queremos que haga la consulta del dominio.
+#Con el "-l" especificamos un limite de resultados que nos aparezcan.
+
+$ theHarvester -d microsoft.com -b baidu,yahoo,duckduckgo,bing -l 100
+
+$ theHarvester -d microsoft.com -b baidu,yahoo,duckduckgo,bing -l 100 -f resultados
+
+#Con el "-f" especificamos que queremos volcarlo a un archivo toda la informacion obtenida.
+
+#Pero de esta herramienta, hay una version antigua que esta mucho mejor en la que se pueden buscar mas cosas, 
+#pero que la quitaron, se podra instalar esa antigua version de la siguiente forma:
+
+#Primero tendremos que instalar Miniconda para crear el entorno virtual:
+
+$ ./DownloadMiniconda.sh
+
+$ bash Miniconda3-latest-Linux-x86_64.sh
+
+$ echo 'export PATH="$HOME/miniconda3/bin:$PATH" >> ~/.zshrc'
+
+$ source miniconda3/bin/activate
+
+$ conda config --set auto_activate_base false
+
+$ conda create -n "old_harvester" python=3.8.0
+
+$ conda activate old_harvester
+
+$ mkdir old_harvester
+
+$ cd old_harvester/
+
+=========================
+
+#Opcion 1:
+
+$ ./DownloadOldTheHarvester.sh
+
+#Opcion 2:
+
+$ wget https://github.com/laramies/theHarvester/archive/refs/tags/3.2.2.zip
+
+========================
+
+$ unzip 3.2.2.zip
+
+$ rm 3.2.2.zip
+
+$ cd theHarvester-3.2.2
+
+$ pip install -r requeriments/base.txt
+
+#Ahora para comprobar si funciona pondremos lo siguiente:
+
+$ python theHarvester.py -h
+
+$ python theHarvester.py -d microsoft.com -b google -l 100 -f resultados2
