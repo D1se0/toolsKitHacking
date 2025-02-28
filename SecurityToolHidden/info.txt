@@ -1,0 +1,5 @@
+# Esta herramienta sirve para ser invisible en internet enmascarando con muchas capas nuestra IP y demas datos.
+
+# Mas informacion ejecutando:
+
+$ ./InformationPage.sh
