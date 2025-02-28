@@ -1,0 +1,3 @@
+#Ejecutaremos el instalador de Nessus .sh de la siguiente forma:
+
+$ sudo bash installNessus.sh

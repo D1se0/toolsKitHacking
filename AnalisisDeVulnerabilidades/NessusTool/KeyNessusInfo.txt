@@ -1,0 +1,7 @@
+#Para poder activar Nessus de forma gratuita y generar una clave aleatoria "Professional" ejecutaremos lo siguiente:
+
+$ python3 nessuskeygen/nessuslicense.py
+
+#Dentro de la herramienta seleccionaremos el numero "1"
+
+#Y esto nos generara la Clave Profesional la cual meteremos cuando estemos instalando Nessus o irnos activarlo directamente

@@ -1,0 +1,34 @@
+#Nessus: Herramienta para Hacking Ético
+#Nessus es una herramienta ampliamente utilizada en el ámbito de la ciberseguridad para realizar análisis de vulnerabilidades. 
+#Fue desarrollada por la empresa Tenable y está diseñada para identificar posibles puntos débiles en redes, sistemas y dispositivos, 
+#ayudando a las organizaciones a protegerse contra ataques cibernéticos.
+
+#Características Principales
+#Análisis de Vulnerabilidades: Escanea redes, servidores, aplicaciones, bases de datos y dispositivos en busca de configuraciones inseguras, 
+#software obsoleto, y vulnerabilidades conocidas.
+#Base de Datos de Vulnerabilidades: Se basa en una enorme base de datos que se actualiza continuamente con las vulnerabilidades más recientes, 
+#usando el estándar CVE (Common Vulnerabilities and Exposures).
+#Escaneos Programados y en Tiempo Real: Permite realizar escaneos manuales, programarlos o monitorear de forma continua los activos de la red.
+#Reportes Detallados: Genera informes claros y personalizables que incluyen las vulnerabilidades encontradas, su nivel de severidad y posibles soluciones.
+#Integración con Políticas de Cumplimiento: Puede realizar evaluaciones para verificar el cumplimiento con estándares 
+#como PCI-DSS, HIPAA, ISO 27001, entre otros.
+
+#Aplicaciones en Hacking Ético
+#Reconocimiento: Ayuda a mapear redes y descubrir activos en un entorno objetivo.
+#Identificación de Puntos Débiles: Localiza vulnerabilidades que podrían ser explotadas por atacantes.
+#Pruebas de Penetración: Proporciona información crítica para planificar y ejecutar pruebas más profundas.
+#Validación de Soluciones: Permite verificar si las vulnerabilidades han sido solucionadas tras implementar parches o cambios en la configuración.
+
+#Ventajas
+#Interfaz amigable y fácil de usar.
+#Gran cobertura de vulnerabilidades conocidas.
+#Informes automatizados y acción priorizada según riesgos.
+
+#Limitaciones
+#Es una herramienta de escaneo pasivo, por lo que no realiza exploits directamente.
+#La versión gratuita (Nessus Essentials) tiene ciertas limitaciones, como el número de hosts escaneables.
+#Puede generar falsos positivos o negativos en algunos escenarios.
+
+#En resumen, Nessus es una herramienta fundamental para los profesionales del hacking ético, 
+#ya que permite identificar y priorizar riesgos en un entorno controlado, contribuyendo a fortalecer la postura de seguridad de una organización.
+
