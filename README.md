@@ -36,4 +36,5 @@ El uso indebido de estas herramientas puede ser ilegal. El autor no se hace resp
 ¡Las contribuciones son bienvenidas! Si tienes una herramienta interesante para agregar, abre un Pull Request o crea un Issue.
 
 💻 Sígueme en redes sociales y mantente actualizado
+
 📩 Para cualquier duda o sugerencia, contáctame en [ciberseguridad12345@gmail.com].
