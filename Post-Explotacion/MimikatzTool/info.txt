@@ -1,0 +1,31 @@
+#Mimikatz es una herramienta de post-explotación muy conocida en el ámbito de la seguridad informática, 
+#utilizada principalmente para extraer credenciales almacenadas en sistemas Windows. 
+#Es ampliamente utilizada para realizar pruebas de penetración y auditorías de seguridad.
+
+#Función principal:
+#- Objetivo: Mimikatz permite extraer contraseñas, hashes, tickets de Kerberos y otros datos relacionados con la autenticación de Windows.
+#- Cómo lo hace: Mimikatz interactúa directamente con la memoria del sistema, 
+#accediendo a información sensible que se encuentra cargada en el espacio de memoria del proceso de Windows. 
+#Esto incluye contraseñas en texto claro, hashes de contraseñas y tickets de autenticación Kerberos.
+#- Capacidades:
+ # - Pass-the-Hash: Permite utilizar hashes de contraseñas sin necesidad de descifrar la contraseña en texto claro.
+ # - Pass-the-Ticket: Facilita el uso de tickets de autenticación de Kerberos de forma fraudulenta.
+ # - Dump de contraseñas: Extrae contraseñas en texto claro de la memoria si estas no están cifradas.
+ # - Golden Ticket: Permite crear tickets de autenticación falsificados para obtener acceso a servicios de Windows.
+
+#Uso típico:
+#- Se utiliza para extraer información sensible de las credenciales de los usuarios de una red Windows comprometida.
+#- Es comúnmente ejecutado en un entorno de post-explotación después de haber obtenido acceso a una máquina, 
+#con el fin de moverse lateralmente o escalar privilegios en la red.
+
+#Para cargar esta herramienta que viene predeterminado en "Meterpreter" se hara de la siguiente forma:
+
+$ load kiwi
+
+#Dumpear las credenciales con la herramienta:
+
+$ creds_all
+
+#Utilizar el lenguaje nativo de "mimikatz" para dumpear las contraseñas que estan injectadas en memoria de la siguiente forma:
+
+$ kiwi_cmd sekurlsa::logonPasswords

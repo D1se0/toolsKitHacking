@@ -1,0 +1,24 @@
+#Un "hash" es una funcion criptografica que lo que hace es recibir informacion 
+#y proporciona un valor determinado para esa informacion, los "hashes" tienen una propiedad muy relevante, 
+#y es que si nosotros "hasheamos" por ejemplo este algoritmo en "md5" la misma palabra 
+#siempre nos va a dar el mismo "hash", si nosotros modificamos algun "byte"/"letra" de esa cadena, 
+#el "hash" va a cambiar por completo y a partir del "hash" tambien es muy complicado 
+#realizar "ingenieria inversa" para poder romperlo y obtener la palabra original.
+
+#Ejemplo de uso:
+
+#Si queremos ver la lista de "Hashcat" de los formatos en numeros, ejecutaremos de la siguiente forma:
+
+$ ./HashcatListFormat.sh
+
+#Para "deshashear" en formato MD5: 
+
+$ hashcat -m 0 -a 0 <HASH_FILE> <WORDLIST>
+
+#Para visualizar el "hash" en texto plano:
+
+$ hashcat -m 0 -a 0 <HASH_FILE> <WORDLIST> --show
+
+#Si queremos realizar fuerza brura con dicho "hash" sera de la siguiente forma:
+
+$ hashcat -m 0 -a 3 <HASH_FILE>

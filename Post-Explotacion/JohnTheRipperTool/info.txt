@@ -1,0 +1,25 @@
+#Un "hash" es una funcion criptografica que lo que hace es recibir informacion 
+#y proporciona un valor determinado para esa informacion, los "hashes" tienen una propiedad muy relevante, 
+#y es que si nosotros "hasheamos" por ejemplo este algoritmo en "md5" la misma palabra 
+#siempre nos va a dar el mismo "hash", si nosotros modificamos algun "byte"/"letra" de esa cadena, 
+#el "hash" va a cambiar por completo y a partir del "hash" tambien es muy complicado 
+#realizar "ingenieria inversa" para poder romperlo y obtener la palabra original.
+
+#Ejemplo de uso:
+
+$ john --format=<FORMAT_HASH> --wordlist=<WORDLIST> <HASH_FILE>
+
+#Con esto lo que estamos haciendo es que le especificamos el formato que tiene dicho "hash", 
+#le pasamos una lista de palabras las cuales va a comparar por si se encontrara ahi 
+#y pasarle el "hash" que queremos que "deshashe" (Por dentro lo que va hacer "john" es "hashear" cada una de 
+#las palabras del diccionario y comparar los "hashes" con el "hash" que le hemos pasado, hasta encontrar el correcto)
+
+#Para ver el resultado del "hash" en texto plano:
+
+$ john --format=<FORMAT_HASH> <HASH_FILE> --show
+
+#Si queremos hacer pruebas de "hash" para "hashear" una palabra o una contraseña ejecuta lo siguiente:
+
+$ ./HashExample.py
+
+#Ahora probar con "john" "deshashear" el "hash"

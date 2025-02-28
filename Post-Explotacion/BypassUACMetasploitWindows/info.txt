@@ -1,0 +1,12 @@
+#El "Bypass UAC (User Account Control)" en Windows es una técnica que permite a un atacante ejecutar código 
+#con privilegios elevados ("administrador") sin necesidad de mostrar el cuadro de 
+#diálogo de "UAC", el cual normalmente solicita aprobación del usuario para realizar acciones sensibles.
+
+#En este tipo de vulnerabilidad hay muchisimas formas de "Bypassear" esto, 
+#pero los fundamentos de este "Bypass" es que se puede hacer esta vulnerabilidad ya que cuando sale el recuadro de 
+#dialogo del "UAC" de "Windows" lo esta cogiendo de una ruta en los registros del mismo 
+#la cual se puede modificar sin necesidad de ser administradores, por lo que nosotros podremos 
+#modificar eso por una "powershell" y cuando se ejecute ese dialogo nos va a ejecutar la "powershell".
+
+#Por lo que vamos a utilizar modulos como "metasploit" en los cuales ya tienen este tipo de tecnicas de forma automatica
+

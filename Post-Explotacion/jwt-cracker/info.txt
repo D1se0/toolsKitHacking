@@ -1,0 +1,27 @@
+#Cracker simple de fuerza bruta de tokens HS256, HS384 y HS512 JWT.
+
+#Eficaz sólo para descifrar tokens JWT con secretos débiles. Recomendación: utilice secretos largos y fuertes o tokens RS256.
+
+#Instalacion:
+
+$ npm install --global jwt-cracker
+
+#Ejemplos de uso:
+
+$ jwt-cracker -t <token> [-a <alphabet>] [--max <maxLength>] [-d <dictionaryFilePath>] [-f]
+
+#token: la cadena de token JWT HS256-512 completa para descifrar
+#alfabeto: el alfabeto que se utilizará para la fuerza bruta (predeterminado: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
+#maxLength: la longitud máxima de la cadena generada durante la fuerza bruta (predeterminado: 12)
+#DictionaryFilePath: ruta a una lista de contraseñas (una por línea) para usar en lugar de fuerza bruta
+#force: fuerza la ejecución del script cuando el token no es válido
+
+#IMPORTANTE:
+
+#Este script requiere Node.js versión 16.0.0 o superior
+
+#Ejemplos Practicos:
+
+$ jwt-cracker -t eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ -a abcdefghijklmnopqrstuwxyz --max 6
+
+$ jwt-cracker -t eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ -d darkweb2017-top10000.txt

