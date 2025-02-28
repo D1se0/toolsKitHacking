@@ -1,0 +1,21 @@
+#Nuclei es una herramienta de escaneo de seguridad de código abierto que se utiliza para identificar vulnerabilidades en aplicaciones web y redes. 
+#Es altamente eficiente y se basa en una arquitectura de plantillas, 
+#lo que permite a los usuarios realizar escaneos personalizados para detectar diferentes tipos de vulnerabilidades. 
+#Cada plantilla de Nuclei está diseñada para buscar patrones específicos de vulnerabilidades, 
+#como CVEs conocidos, configuraciones inseguras, errores de seguridad en aplicaciones web y más.
+
+#Nuclei es muy popular entre los profesionales de la seguridad debido a su velocidad, 
+#flexibilidad y facilidad de integración en flujos de trabajo automatizados. 
+#La herramienta permite realizar escaneos de alta velocidad en grandes rangos de direcciones IP y puertos, 
+#lo que la hace útil para realizar auditorías de seguridad en entornos de infraestructura o durante pruebas de penetración.
+
+#Características clave de Nuclei:
+
+#Plantillas personalizables: Nuclei utiliza plantillas YAML que describen cómo realizar las pruebas. 
+#Estas plantillas pueden ser fácilmente modificadas o creadas por el usuario.
+
+#Soporte para diferentes protocolos: Puede usarse para escanear HTTP, DNS, ICMP, y más, cubriendo una amplia gama de vectores de ataque.
+
+#Escaneo rápido y eficiente: Nuclei está diseñado para ser rápido y para integrarse bien en flujos de trabajo automatizados.
+
+#Comunidad activa: La comunidad de Nuclei es muy activa, lo que garantiza que las plantillas estén siempre actualizadas con nuevas vulnerabilidades.
