@@ -1,0 +1,2 @@
+#Con esto podemos generar Payloads de forma que sea indetectable para el Windows Defender, ya que estan ofuscados y tambien se generan
+#para Linux

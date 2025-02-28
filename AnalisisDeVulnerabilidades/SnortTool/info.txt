@@ -1,0 +1,12 @@
+Este "software" es un "IDS" bastante ponente el cual se encarga principalmente de detectar actividad maliciosa en trafico de red, generalmente este tipo de herramientas se colocan en un punto de la infraestructura tecnologica por donde pasa el trafico de red que se intercambia por los sistemas que queremos monitorizar, en nuestro caso nuestro punto central va a ser nuestra maquina "host".
+
+https://www.snort.org/downloads
+
+https://npcap.com/
+
+https://drive.google.com/file/d/1W86rglBka9NAejS7Rx6lyymuV_2GFWKJ/view?pli=1
+
+https://drive.google.com/file/d/1ozf_4fV2d8pGEeDGvY38jCt_fVnflwTv/view
+
+Esta herramienta funciona en "Windows" que actúa como herramienta de seguridad (IDS) para monitorear todo el trafico de red.
+

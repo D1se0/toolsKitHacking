@@ -1,0 +1,28 @@
+#Hay una pagina bastante famosa la cual recopila todas las vulnerabilidades que vayan exsistiendo y les asigna un numero, 
+#por lo que este numero sera el identificativo a dicha vulnerabilidad, 
+#todo esto se lo proporciona la empresa "mitre" cada vulnerabilidad que vaya saliendo se va implementando en esta base de datos:
+
+$ ./CVEPage.sh
+
+#Si nosotros buscamos una vulnerabilidad que sospechamos que puede ser vulnerable, podremos buscarlo en el boton de "Search CVE", 
+#por ejemplo si buscamos una version de "FTP" que encontramos en nuestras maquinas de prueba en mi caso 
+#la de "Linux - Ubuntu" vimos que era un "ProFTPD 1.3.5", por lo que si buscamos eso veremos que esta 
+#asignado a un "CVE-2015-3306" por lo que tiene una vulnerabilidad que se indica con ese numero 
+#y si te metes en dicha vulnerabilidad podremos ver la descripcion de en que consiste esa vulnerabilidad.
+
+#Despues te muestra las referencias donde puede encontrar mas informacion sobre esa vulnerabilidad 
+#y como se podria aprovechar para poder ser explotada.
+
+#Con este identificador que obtenemos, lo que podemos hacer es buscarlo en "google" con el identificador e investigar 
+#herramientas que esten creadas en "GitHub" con el lenguaje de programacion que queramos buscar para poder explotar estas vulnerabilidades.
+
+#Si por ejemplo nosotros queremos identificar que nivel de peligrosidad tiene esta vulnerabilidad, 
+#podremos hacerlo ejecutando el siguiente script:
+
+$ ./CVSSPage.sh
+
+#Hay otra pagina que te engloba todo esto, por la que se puede buscar por el nombre del servicio y version, 
+#esta pagina te muestra los resultados con su "CVE" asociado y a parte tambien te muestra el riesgo de dicha vulnerabilidad, 
+#te muestra tambien el "PCE" mostrandotelo todo:
+
+$ ./CVEDetailsPage.sh
