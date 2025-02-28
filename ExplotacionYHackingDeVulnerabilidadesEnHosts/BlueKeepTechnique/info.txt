@@ -1,0 +1,24 @@
+# Primero suspender la maquina windows victima
+
+# Ir a la ruta donde esta la maquina windows victima y copiar 2 archivos llamados...
+
+# Archivo 1 = metasploitable3-win2k8-81b477c7.vmss
+# Archivo 2 = metasploitable3-win2k8-81b477c7.vmem
+
+# Copairlos y pegarlos en una carpeta aparte
+
+# Abrir un cmd de nuestro host y poner lo siguiente:
+
+$ "C:\Users\user\Desktop\vmss2core\vmss2core\vmss2core.exe" -W metasploitable3-win2k8-81b477c7.vmss metasploitable3-win2k8-81b477c7.vmem
+
+# Despues de que se haya creado el archivo de memoria se le da doble click y se abrira el windbg
+
+# Ponemos el comando "!poolfind 0" para que nos encuentre la direccion de memoria sin paginar
+
+# Una vez encontrada, se la pegamos en el exploit y lo guardamos, reiniciamos metasploit
+
+# Y por utlimo lo configuramos todo el exploit, estableciendo como añadido el siguiente comando:
+
+$ set groomsize 50
+
+# Y lo iniciamos con "exploit"

@@ -1,0 +1,9 @@
+# Lo que hace ese .py es que me transforma en un shellcode el binario mimikatz.exe para que luego pueda insertarlo en 
+# mi binario que he creado y se pueda ejecutar el mimikatz.exe sin ningun problema bypasseando la firma del binario.
+
+$ python3 exe2shell.py mimikatz.exe > shell.txt
+
+# Con esto nos generara todos los bytes del mimikatz para que pueda ser ejecutado, y ya con esto podriamos convertirlo 
+# a un string como hicimos anteriormente para que se pueda ejecutar sin ningun problema y realizar las modificaciones 
+# necesarias como hicimos anteriormente.
+

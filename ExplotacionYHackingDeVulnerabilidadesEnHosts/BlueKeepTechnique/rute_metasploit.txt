@@ -1,0 +1,7 @@
+# Ruta donde esta el exploit
+
+$ cd /usr/share/metasploit-framework/modules/exploits/windows/rdp
+
+# Abrir el archivo exploit
+
+$ nano cve_2019_0708_bluekeep_rce.rb

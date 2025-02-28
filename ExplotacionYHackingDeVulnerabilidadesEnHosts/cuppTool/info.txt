@@ -1,0 +1,18 @@
+#CUPP (Common User Passwords Profiler) es una herramienta de código abierto diseñada para generar diccionarios personalizados de contraseñas. 
+#Es particularmente útil en pruebas de seguridad, como ataques de fuerza bruta, para auditar la fortaleza de contraseñas.
+
+#Características principales:
+#- Creación de diccionarios personalizados: CUPP utiliza información específica del objetivo (como nombre, fecha de nacimiento, apodos, etc.) para generar listas de posibles contraseñas.
+#- Enfoque dirigido: En lugar de usar listas genéricas, CUPP crea diccionarios más precisos basados en patrones comunes y detalles personales.
+#- Modo interactivo: Permite al usuario responder preguntas sobre el objetivo, como datos familiares, hobbies, mascotas, entre otros.
+#- Análisis de contraseñas comunes: Incluye la opción de buscar en listas de contraseñas populares o conocidas.
+#- Compatibilidad con listas externas: Puede analizar diccionarios externos y combinarlos con los propios.
+
+#CUPP es ampliamente usado por pentesters y expertos en ciberseguridad para simular ataques y educar sobre la importancia de contraseñas robustas. 
+#Es crucial usarlo de manera ética y con autorización.
+
+#Ejemplo de uso:
+
+$ cupp -i
+
+#Con esto iniciamos la herramienta para crear el diccionario.
