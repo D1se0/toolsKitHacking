@@ -1,0 +1,3 @@
+# Usage command...
+
+$ python2.7 brute.py <path to wordlist> <path to ciphers.txt> <path to encrypted file>

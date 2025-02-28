@@ -1,0 +1,223 @@
+Section:
+File/Folder Opening
+
+Name:
+Open/Save MRU (Most Recently Used)
+   
+Content:
+Description:
+In the simplest terms, this key tracks files that have been opened or
+saved within a Windows shell dialog box. This happens to be a big
+data set, not only including web browsers like Internet Explorer and
+Firefox, but also a majority of commonly used applications
+
+Location:
+XP:
+NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\
+OpenSaveMRU
+Win7/8/10:
+NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\
+OpenSavePIDlMRU
+
+Interpretation:
+• The “*” key – This subkey tracks the most recent files of any
+extension input in an OpenSave dialog
+• .??? (Three letter extension) – This subkey stores file info from
+the OpenSave dialog by specific extension
+
+Name:
+Recent Files
+   
+Content:
+Description:
+Registry Key that will track the last files and folders opened and
+is used to populate data in “Recent” menus of the Start menu
+
+Location:
+NTUSER.DAT:
+NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs
+
+Interpretation:
+• RecentDocs – Overall key will track the overall order of the
+last 150 files or folders opened. MRU list will keep track of the
+temporal order in which each file/folder was opened. The last
+entry and modification time of this key will be the time and
+location the last file of a specific extension was opened.
+• .??? – This subkey stores the last files with a specific extension
+that were opened. MRU list will keep track of the temporal
+order in which each file was opened. The last entry and
+modification time of this key will be the time when and location
+where the last file of a specific extension was opened.
+• Folder – This subkey stores the last folders that were opened.
+MRU list will keep track of the temporal order in which each
+folder was opened. The last entry and modification time of this
+key will be the time and location of the last folder opened
+
+Name:
+Jump Lists
+   
+Content:
+Description:
+• The Windows 7 task bar (Jump List) is engineered to allow users
+to “jump” or access items have frequently or recently used
+quickly and easily. This functionality cannot only include recent
+media files; it must also include recent tasks.
+• The data stored in the AutomaticDestinations folder will each
+have a unique file prepended with the AppID of the association
+application and embedded with LNK files in each stream.
+
+Location:
+Win7/8/10:
+C:\%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations
+
+Interpretation:
+• Using the Structured Storage Viewer, open up one of the
+AutomaticDestination jumplist files.
+• Each one of these files is a separate LNK file. They are also
+stored numerically in order from the earliest one (usually 1) to
+the most recent (largest integer value)
+
+Name:
+Shell Bags
+   
+Content:
+Description:
+• Which folders were accessed on the local machine, the network,
+and/or removable devices. Evidence of previously existing
+folders after deletion/overwrite. When certain folders were
+accessed.
+
+Location:
+Explorer Access:
+• USRCLASS.DAT\Local Settings\Software\Microsoft\Windows\Shell\Bags
+• USRCLASS.DAT\Local Settings\Software\Microsoft\Windows\Shell\BagMRU
+Desktop Access:
+• NTUSER.DAT\Software\Microsoft\Windows\Shell\BagMRU
+• NTUSER.DAT\Software\Microsoft\Windows\Shell\Bags
+
+Interpretation:
+Stores information about which folders were most recently
+browsed by the user
+
+Name:
+Shortcut (LNK) Files
+   
+Content:
+Description:
+• Shortcut Files automatically created by Windows
+ - Recent Items
+ - Opening local and remote data files and documents will
+generate a shortcut file (.lnk)
+
+Location:
+XP:
+• C:\%USERPROFILE%\Recent
+Win7/8/10:
+• C:\%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Recent\
+• C:\%USERPROFILE%\AppData\Roaming\Microsoft\Office\Recent\
+Note these are primary locations of LNK files. They can also be
+found in other locations
+
+Interpretation:
+• Date/Time file of that name was first opened
+- Creation Date of Shortcut (LNK) File
+• Date/Time file of that name was last opened
+- Last Modification Date of Shortcut (LNK) File
+• LNKTarget File (Internal LNK File Information) Data:
+- Modified, Access, and Creation times of the target file
+- Volume Information (Name, Type, Serial Number)
+- Network Share information
+- Original Location
+- Name of System
+
+Name:
+Prefetch
+   
+Content:
+Description:
+• Increases performance of a system by pre-loading code pages
+of commonly used applications. Cache Manager monitors all
+files and directories referenced for each application or process
+and maps them into a .pf file. Utilized to know an application
+was executed on a system.
+• Limited to 128 files on XP and Win7
+• Limited to 1024 files on Win8-10
+• (exename)-(hash).pf
+
+Location:
+WinXP/7/8/10:
+C:\Windows\Prefetch
+
+Interpretation:
+• Can examine each .pf file to look for file handles recently used
+• Can examine each .pf file to look for device handles recently used
+
+Name:
+Last-Visited MRU
+   
+Content:
+Description:
+Tracks the specific executable used by an application to open
+the files documented in the OpenSaveMRU key. In addition, each
+value also tracks the directory location for the last file that was
+accessed by that application.
+Example: Notepad.exe was last run using the
+C:\Users\Rob\Desktop folder
+
+Location:
+XP:
+NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\
+LastVisitedMRU
+Win7/8/10:
+NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\
+LastVisitedPidlMRU
+
+Interpretation:
+Tracks the application executables used to open files in
+OpenSaveMRU and the last file path used.
+
+Name:
+IE|Edge file:// History
+   
+Content:
+Description:
+A little known fact about the IE History is that the information
+stored in the history files is not just related to Internet browsing.
+The history also records local, removable, and remote (via
+network shares) file access, giving us an excellent means for
+determining which files and applications were accessed on the
+system, day by day.
+
+Location:
+Internet Explorer:
+• IE6-7:
+%USERPROFILE%\Local Settings\History\ History.IE5
+• IE8-9:
+%USERPROFILE%\AppData\Local\Microsoft\Windows\History\History.IE5
+• IE10-11:
+%USERPROFILE%\AppData\Local\Microsoft\Windows\WebCache\WebCacheV*.dat
+
+Interpretation:
+• Stored in index.dat as: file:///C:/directory/filename.ext
+• Does not mean file was opened in browser
+
+Name:
+Office Recent Files
+   
+Content:
+Description:
+MS Office programs will track their own Recent Files list to make
+it easier for users to remember the last file they were editing.
+
+Location:
+NTUSER.DAT\Software\Microsoft\Office\VERSION
+• 14.0 = Office 2010 • 11.0 = Office 2003
+• 12.0 = Office 2007 • 10.0 = Office XP
+NTUSER.DAT\Software\Microsoft\Office\VERSION\UserMRU\LiveID_####\FileMRU
+• 15.0 = Office 365
+
+Interpretation:
+Similar to the Recent Files, this will track the last files that were
+opened by each MS Office application. The last entry added, per
+the MRU, will be the time the last file was opened by a specific
+MS Office application.

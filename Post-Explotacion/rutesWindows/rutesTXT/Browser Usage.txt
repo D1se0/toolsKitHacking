@@ -1,0 +1,189 @@
+Section:
+Browser Usage
+
+Name:
+History
+
+Content:
+Description:
+Records websites visited by date and time. Details stored
+for each local user account. Records number of times
+visited (frequency). Also tracks access of local system files
+
+Location:
+Internet Explorer
+• IE6-7: %USERPROFILE%\Local Settings\History\History.IE5
+• IE8-9: %USERPROFILE%\AppData\Local\Microsoft\Windows\History\
+History.IE5
+• IE10, 11, Edge: %USERPROFILE%\AppData\Local\Microsoft\Windows\
+WebCache\WebCacheV*.dat
+Firefox
+• XP: %USERPROFILE%\Application Data\Mozilla\Firefox\Profiles\<random
+text>.default\places.sqlite
+• Win7/8/10: %USERPROFILE%\AppData\Roaming\Mozilla\Firefox\
+Profiles\<random text>.default\places.sqlite
+Chrome
+• XP: %USERPROFILE%\Local Settings\Application Data\Google\Chrome\User
+Data\Default\History
+• Win7/8/10: %USERPROFILE%\AppData\Local\Google\Chrome\User Data\
+Default\History
+
+Interpretation:
+Any results.
+
+Name:
+Cookies
+
+Content:
+Description:
+Cookies give insight into what websites have been visited
+and what activities may have taken place there
+
+Location:
+Internet Explorer
+• IE8-9: %USERPROFILE%\AppData\Roaming\Microsoft\Windows\Cookies
+• IE10: %USERPROFILE%\AppData\Roaming\Microsoft\Windows\Cookies
+• IE11: %USERPROFILE%\AppData\Local\Microsoft\Windows\INetCookies
+• Edge: %USERPROFILE%\AppData\Local\Packages\microsoft.
+microsoftedge_<APPID>\AC\MicrosoftEdge\Cookies
+Firefox
+• XP: %USERPROFILE%\Application Data\Mozilla\Firefox\Profiles\<random
+text>.default\cookies.sqlite
+• Win7/8/10: %USERPROFILE%\AppData\Roaming\Mozilla\Firefox\
+Profiles\<randomtext>.default\cookies.sqlite
+Chrome
+• XP: %USERPROFILE%\Local Settings\Application Data\Google\Chrome\User
+Data\Default\Local Storage\
+• Win7/8/10: %USERPROFILE%\AppData\Local\Google\Chrome\User Data\
+Default\Local Storage\
+
+Interpretation:
+Any results.
+
+Name:
+Cache
+
+Content:
+Description:
+• The cache is where web page components can be stored
+locally to speed up subsequent visits
+• Gives the investigator a “snapshot in time” of what a
+user was looking at online
+ - Identifies websites which were visited
+ - Provides the actual files the user viewed on a given
+website
+ - Cached files are tied to a specific local user account
+ - Timestamps show when the site was first saved and last
+viewed
+
+Location:
+Internet Explorer
+• IE8-9: %USERPROFILE%\AppData\Local\Microsoft\Windows\Temporary
+Internet Files\Content.IE5
+• IE10: %USERPROFILE%\AppData\Local\Microsoft\Windows\Temporary
+Internet Files\Content.IE5
+• IE11: %USERPROFILE%\AppData\Local\Microsoft\Windows\INetCache\IE
+• Edge: %USERPROFILE%\AppData\Local\Packages\microsoft.
+microsoftedge_<APPID>\AC\MicrosoftEdge\Cache
+Firefox
+• XP: %USERPROFILE%\Local Settings\ApplicationData\Mozilla\Firefox\
+Profiles\<randomtext>.default\Cache
+• Win7/8/10: %USERPROFILE%\AppData\Local\Mozilla\Firefox\
+Profiles\<randomtext>.default\Cache
+Chrome
+• XP: %USERPROFILE%\Local Settings\Application Data\Google\Chrome\User
+Data\Default\Cache - data_# and f_######
+• Win7/8/10: %USERPROFILE%\AppData\Local\Google\Chrome\User Data\
+Default\Cache\ - data_# and f_######
+
+Interpretation:
+Any results.
+
+Name:
+Flash & Super Cookies
+
+Content:
+Description:
+Local Stored Objects (LSOs), or Flash Cookies, have
+become ubiquitous on most systems due to the extremely
+high penetration of Flash applications across the Internet.
+They tend to be much more persistent because they do
+not expire, and there is no built-in mechanism within the
+browser to remove them. In fact, many sites have begun
+using LSOs for their tracking mechanisms because they
+rarely get cleared like traditional cookies.
+
+Location:
+Win7/8/10:
+%APPDATA%\Roaming\Macromedia\FlashPlayer\#SharedObjects\<randompr
+ofileid>
+
+Interpretation:
+• Websites visited
+• User account used to visit the site
+• When cookie was created and last accessed
+
+Name:
+Session Restore
+
+Content:
+Description:
+Automatic Crash Recovery features built into the browser.
+
+Location:
+Internet Explorer
+Win7/8/10: %USERPROFILE%/AppData/Local/Microsoft/Internet Explorer/
+Recovery
+Firefox
+Win7/8/10: %USERPROFILE%\AppData\Roaming\Mozilla\Firefox\
+Profiles\<randomtext>.default\sessionstore.js
+Chrome
+Win7/8/10: %USERPROFILE%\AppData\Local\Google\Chrome\User Data\
+Default\
+Files = Current Session, Current Tabs, Last Session, Last Tabs
+
+Interpretation:
+• Historical websites viewed in each tab
+• Referring websites
+• Time session ended
+• Modified time of .dat files in LastActive folder
+• Time each tab opened (only when crash occurred)
+• Creation time of .dat files in Active folder
+
+Name:
+Google Analytics Cookies
+
+Content:
+Description:
+Google Analytics (GA) has developed an extremely
+sophisticated methodology for tracking site visits, user
+activity, and paid search. Since GA is largely free, it has a
+commanding share of the market, estimated at over 80%
+of sites using traffic analysis and over 50% of all sites.
+
+Location:
+__utma – Unique visitors
+• Domain Hash
+• Visitor ID
+• Cookie Creation Time
+• Time of 2nd most
+recent visit
+• Time of most recent visit
+• Number of visits
+__utmb – Session tracking
+• Domain hash
+• Page views in current session
+• Outbound link clicks
+• Time current session started
+__utmz – Traffic sources
+• Domain Hash
+• Last Update time
+• Number of visits
+• Number of different types of visits
+• Source used to access site
+• Google Adwords campaign name
+• Access Method (organic, referral, cpc, email, direct)
+• Keyword used to find site (non-SSL only)
+
+Interpretation:
+Any results.

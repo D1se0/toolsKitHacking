@@ -1,0 +1,153 @@
+Section:
+Network Activity/Physical Location
+
+Name:
+Timezone
+   
+Content:
+Description:
+Identifies the current system time zone
+
+Location:
+SYSTEM Hive:
+SYSTEM\CurrentControlSet\Control\TimeZoneInformation
+
+Interpretation:
+• Time activity is incredibly useful for correlation of activity
+• Internal log files and date/timestamps will be based on the
+system time zone information
+• You might have other network devices and you will need to
+correlate information to the time zone information collected here.
+
+Name:
+Cookies
+
+Content:
+Description:
+Cookies give insight into what websites have been visited and
+what activities may have taken place there
+
+Location:
+Internet Explorer
+• IE6-8:
+%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Cookies
+• IE10:
+%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Cookies
+• IE11:
+%USERPROFILE%\AppData\Local\Microsoft\Windows\INetCookies
+Firefox
+• XP:
+%USERPROFILE%\Application Data\Mozilla\Firefox\Profiles\<random text>.default\
+cookies.sqlite
+• Win7/8/10:
+%USERPROFILE%\AppData\Roaming\Mozilla\Firefox\Profiles\<randomtext>.default\
+cookies.sqlite
+Chrome
+• XP:
+%USERPROFILE%\Local Settings\ApplicationData\Google\Chrome\User Data\Default\
+Local Storage
+• Win7/8/10:
+%USERPROFILE%\AppData\Local\Google\Chrome\User Data\Default\Local Storage
+
+Interpretation:
+Any results.
+
+Name:
+Network History
+   
+Content:
+Description:
+• Identify networks that the computer has been connected to
+• Networks could be wireless or wired
+• Identify domain name/intranet name
+• Identify SSID
+• Identify Gateway MAC Address
+
+Location:
+Win7/8/10 SOFTWARE HIVE:
+• SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Signatures\Unmanaged
+• SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Signatures\Managed
+• SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Nla\Cache
+
+Interpretation:
+• Identifying intranets and networks that a computer has
+connected to is incredibly important
+• Not only can you determine the intranet name, you can
+determine the last time the network was connected to it based
+on the last write time of the key
+• This will also list any networks that have been connected to via
+a VPN
+• MAC Address of SSID for Gateway could be physically triangulated
+
+Name:
+WLAN Event Log
+   
+Content:
+Description:
+Determine what wireless networks the system associated with and
+identify network characteristics to find location
+Relevant Event IDs
+• 11000 – Wireless network association started
+• 8001 – Successful connection to wireless network
+• 8002 – Failed connection to wireless network
+• 8003 – Disconnect from wireless network
+• 6100 – Network diagnostics (System log)
+
+Location:
+Microsoft-Windows-WLAN-AutoConfig Operational.evtx
+
+Interpretation:
+• Shows historical record of wireless network connections
+• Contains SSID and BSSID (MAC address), which can be used to
+geolocate wireless access point *(no BSSID on Win8+)
+
+Name:
+Browser Search Terms
+   
+Content:
+Description:
+Records websites visited by date and time. Details stored for each
+local user account. Records number of times visited (frequency).
+Also tracks access of local system files. This will also include the
+website history of search terms in search engines
+
+Location:
+Internet Explorer
+• IE6-7:
+%USERPROFILE%\Local Settings\History\History.IE5
+• IE8-9:
+%USERPROFILE%\AppData\Local\Microsoft\Windows\History\History.IE5
+• IE10-11:
+%USERPROFILE%\AppData\Local\Microsoft\Windows\WebCache\WebCacheV*.dat
+Firefox
+• XP:
+%userprofile%\Application Data\Mozilla\Firefox\Profiles\
+<randomtext>.default\places.sqlite
+• Win7/8/10:
+%userprofile%\AppData\Roaming\Mozilla\Firefox\
+Profiles\<randomtext>.default\places.sqlite
+
+Interpretation:
+Any results.
+
+Name:
+System Resource Usage Monitor (SRUM)
+   
+Content:
+Description:
+Records 30 to 60 days of historical system performance.
+Applications run, user account responsible for each,
+and application and bytes sent/received per application
+per hour.
+
+Location:
+SOFTWARE\Microsoft\WindowsNT\CurrentVersion\SRUM\Extensions
+{973F5D5C-1D90-4944-BE8E-24B94231A174} = Windows Network Data Usage Monitor
+{DD6636C4-8929-4683-974E-22C046A43763} = Windows Network Connectivity Usage
+Monitor
+SOFTWARE\Microsoft\WlanSvc\Interfaces\
+C:\Windows\System32\SRU\
+
+Interpretation:
+Use tool such as srum_dump.exe to cross correlate the data between
+the registry keys and the SRUM ESE Database.

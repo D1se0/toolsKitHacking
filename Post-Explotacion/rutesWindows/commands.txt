@@ -1,0 +1,7 @@
+#Instalar primero los requisitos de la herramienta
+
+$ ./requirements.sh
+
+#Despues lo podremos ejecutar con el siguiente comando, para saber que funciona
+
+$ python3 rutesWindows.py -h

@@ -1,0 +1,3 @@
+#"srm" lo que hace es borrar un fichero de manera segura y a parte realiza "38" escrituras sobre ese fichero y se utilizaria de la siguiente forma:
+
+$ srm -v <FILE>

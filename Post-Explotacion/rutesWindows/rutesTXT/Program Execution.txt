@@ -1,0 +1,219 @@
+Section:
+Program Execution
+
+Name:
+UserAssist
+
+Content:
+Description:
+GUI-based programs launched from the desktop are tracked in
+the launcher on a Windows System.
+
+Location:
+NTUSER.DAT HIVE:
+NTUSER.DAT\Software\Microsoft\Windows\Currentversion\Explorer\UserAssist\
+{GUID}\Count
+
+Interpretation:
+All values are ROT-13 Encoded
+• GUID for XP
+ - 75048700 Active Desktop
+• GUID for Win7/8/10
+ - CEBFF5CD Executable File Execution
+ - F4E57C4B Shortcut File Execution
+
+Name:
+Windows 10 Timeline
+
+Content:   
+Description:
+Win10 records recently used applications and files in a
+“timeline” accessible via the “WIN+TAB” key. The data is
+recorded in a SQLite database.
+
+Location:
+C:\Users\<profile>\AppData\Local\ConnectedDevices
+Platform\L.<profile>\ActivitiesCache.db
+
+Interpretation:
+• Application execution
+• Focus count per application
+
+Name:
+RecentApps
+
+Content:   
+Description:
+GUI Program execution launched on the Win10 system is
+tracked in the RecentApps key
+
+Location:
+Win10:
+NTUSER.DAT\Software\Microsoft\Windows\Current Version\Search\RecentApps
+
+Interpretation:
+Each GUID key points to a recent application.
+AppID = Name of Application
+LastAccessTime = Last execution time in UTC
+LaunchCount = Number of times executed
+
+Name:
+Shimcache
+
+Content:   
+Description:
+• Windows Application Compatibility Database is used by
+Windows to identify possible application compatibility
+challenges with executables.
+• Tracks the executables file name, file size, last modified time,
+and in Windows XP the last update time
+
+Location:
+XP:
+SYSTEM\CurrentControlSet\Control\SessionManager\AppCompatibility
+Win7/8/10:
+SYSTEM\CurrentControlSet\Control\Session Manager\AppCompatCache
+
+Interpretation:
+Any executable run on the Windows system could be found
+in this key. You can use this key to identify systems that
+specific malware was executed on. In addition, based on the
+interpretation of the time-based data you might be able to
+determine the last time of execution or activity on the system.
+• Windows XP contains at most 96 entries
+- LastUpdateTime is updated when the files are executed
+• Windows 7 contains at most 1,024 entries
+- LastUpdateTime does not exist on Win7 systems
+
+Name:
+Jump Lists
+
+Content:   
+Description:
+• The Windows 7 task bar (Jump List) is engineered to allow
+users to “jump” or access items they have frequently or
+recently used quickly and easily. This functionality cannot
+only include recent media files; it must also include recent
+tasks.
+• The data stored in the AutomaticDestinations folder will
+each have a unique file prepended with the AppID of the
+associated application. 
+
+Location:
+Win7/8/10:
+C:\%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Recent\
+AutomaticDestinations
+
+Interpretation:
+• First time of execution of application.
+- Creation Time = First time item added to the AppID file.
+• Last time of execution of application w/file open.
+- Modification Time = Last time item added to the AppID file.
+• List of Jump List IDs ->
+http://www.forensicswiki.org/wiki/List_of_Jump_List_IDs
+
+Name:
+Amcache.hve
+   
+Content:
+Description:
+ProgramDataUpdater (a task associated with the Application
+Experience Service) uses the registry file Amcache.hve to store
+data during process creation
+
+Location:
+Win7/8/10:
+C:\Windows\AppCompat\Programs\Amcache.hve
+
+Interpretation:
+• Amcache.hve – Keys = Amcache.hve\Root\File\{Volume GUID}\#######
+• Entry for every executable run, full path information, File’s
+$StandardInfo Last Modification Time, and Disk volume the
+executable was run from
+• First Run Time = Last Modification Time of Key
+• SHA1 hash of executable also contained in the key
+
+Name:
+System Resource Usage Monitor (SRUM)
+   
+Content:
+Description:
+Records 30 to 60 days of historical system performance.
+Applications run, user account responsible for each, and
+application and bytes sent/received per application per hour
+
+Location:
+SOFTWARE\Microsoft\WindowsNT\CurrentVersion\SRUM\Extensions {d10ca2fe-6fcf4f6d-848e-b2e99266fa89} = Application Resource Usage Provider C:\Windows\
+System32\SRU\
+
+Interpretation:
+Use tool such as srum_dump.exe to cross correlate the data
+between the registry keys and the SRUM ESE Database.
+
+Name:
+BAM/DAM
+   
+Content:
+Description:
+Windows Background Activity Moderator (BAM)
+
+Location:
+Win10:
+SYSTEM\CurrentControlSet\Services\bam\UserSettings\{SID}
+SYSTEM\CurrentControlSet\Services\dam\UserSettings\{SID}
+
+Interpretation:
+Provides full path of the executable file that was run on the
+system and last execution date/time
+
+Name:
+Last-Visited MRU
+   
+Content:
+Description:
+Tracks the specific executable used by an application to open
+the files documented in the OpenSaveMRU key. In addition,
+each value also tracks the directory location for the last file
+that was accessed by that application.
+Example: Notepad.exe was last run using the C:\%USERPROFILE%\
+Desktop folder
+
+Location:
+XP:
+NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\
+LastVisitedMRU
+Win7/8/10:
+NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\
+LastVisitedPidlMRU
+
+Interpretation:
+Tracks the application executables used to open files in
+OpenSaveMRU and the last file path used.
+
+Name:
+Prefetch
+   
+Content:
+Description:
+• Increases performance of a system by pre-loading code
+pages of commonly used applications. Cache Manager
+monitors all files and directories referenced for each
+application or process and maps them into a .pf file. Utilized
+to know an application was executed on a system.
+• Limited to 128 files on XP and Win7
+• Limited to 1024 files on Win8
+• (exename)-(hash).pf
+
+Location:
+WinXP/7/8/10:
+C:\Windows\Prefetch
+
+Interpretation:
+• Each .pf will include last time of execution, number of times
+run, and device and file handles used by the program
+• Date/Time file by that name and path was first executed
+- Creation Date of .pf file (-10 seconds)
+• Date/Time file by that name and path was last executed
+- Embedded last execution time of .pf file
+- Last modification date of .pf file (-10 seconds)
+- Win8-10 will contain last 8 times of execution

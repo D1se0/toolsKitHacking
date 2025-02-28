@@ -1,0 +1,10 @@
+
+# Primero hay que instalar los requisitos para que no haya ningun fallo y que se pueda ejecutar desde cualquier parte de la terminal...
+
+$ ./requeriments.sh
+
+# Una vez instalado los requisitos comprobaremos si funciona haciendo lo siguiente...
+
+$ suBruteforce -h
+
+[!] Solo se puede ejecutar sin ser root...

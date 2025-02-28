@@ -1,0 +1,186 @@
+Section:
+Deleted File or File Knowledge
+
+Name:
+XP Search – ACMRU
+
+Content:
+Description:
+You can search for a wide range of information through the
+search assistant on a Windows XP machine. The search assistant
+will remember a user’s search terms for filenames, computers,
+or words that are inside a file. This is an example of where
+you can find the “Search History” on the Windows system
+
+Location:
+NTUSER.DAT HIVE
+NTUSER.DAT\Software\Microsoft\Search Assistant\ACMru\####
+
+Interpretation:
+• Search the Internet – ####=5001
+• All or part of a document name – ####=5603
+• A word or phrase in a file – ####=5604
+• Printers, Computers and People – ####=5647
+
+Name:
+Thumbcache
+
+Content:
+Description:
+Thumbnails of pictures, office documents, and folders exist in
+a database called the thumbcache. Each user will have their
+own database based on the thumbnail sizes viewed by the
+user (small, medium, large, and extra-larger)
+
+Location:
+C:\%USERPROFILE%\AppData\Local\Microsoft\Windows\Explorer
+
+Interpretation:
+• These are created when a user switches a folder to
+thumbnail mode or views pictures via a slide show. As it
+were, our thumbs are now stored in separate database files.
+Win7+ has 4 sizes for thumbnails and the files in the cache
+folder reflect this:
+- 32 -> small - 96 -> medium
+- 256 -> large - 1024 -> extra large
+• The thumbcache will store the thumbnail copy of the picture
+based on the thumbnail size in the content of the equivalent
+database file. 
+
+Name:
+Thumbs.db
+
+Content:
+Description:
+Hidden file in directory where images on machine exist stored
+in a smaller thumbnail graphics. thumbs.db catalogs pictures
+in a folder and stores a copy of the thumbnail even if the
+pictures were deleted.
+
+Location:
+WinXP/Win8|8.1
+Automatically created anywhere with homegroup enabled
+Win7/8/10
+Automatically created anywhere and accessed via a UNC Path
+(local or remote)
+
+Interpretation:
+Include:
+• Thumbnail Picture of Original Picture
+• Document Thumbnail – Even if Deleted
+• Last Modification Time (XP Only)
+• Original Filename (XP Only)
+
+Name:
+IE|Edge file://
+
+Content:
+Description:
+A little-known fact about the IE History is that the information
+stored in the history files is not just related to Internet
+browsing. The history also records local and remote (via
+network shares) file access, giving us an excellent means for
+determining which files and applications were accessed on
+the system, day by day. 
+
+Location:
+Internet Explorer:
+IE6-7
+%USERPROFILE%\LocalSettings\History\History.IE5
+IE8-9
+%USERPROFILE%\AppData\Local\Microsoft\WindowsHistory\History.IE5
+IE10-11
+%USERPROFILE%\AppData\Local\Microsoft\Windows\WebCache\WebCacheV*.dat
+
+Interpretation:
+• Stored in index.dat as: file:///C:/directory/filename.ext
+• Does not mean file was opened in browser
+
+Name:
+Search – WordWheelQuery
+
+Content:
+Description:
+Keywords searched for from the START menu bar on a
+Windows 7 machine.
+
+Location:
+Win7/8/10 NTUSER.DAT Hive
+NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\WordWheelQuery
+
+Interpretation:
+Keywords are added in Unicode and listed in temporal order
+in an MRUlist
+
+Name:
+Win7/8/10 Recycle Bin
+
+Content:
+Description:
+The recycle bin is a very important location on a Windows file
+system to understand. It can help you when accomplishing
+a forensic investigation, as every file that is deleted from a
+Windows recycle bin aware program is generally first put in
+the recycle bin.
+
+Location:
+Hidden System Folder
+Win7/8/10
+• C:\$Recycle.bin
+• Deleted Time and Original Filename contained in separate
+files for each deleted recovery file
+
+Interpretation:
+• SID can be mapped to user via Registry Analysis
+• Win7/8/10
+- Files Preceded by $I###### files contain
+• Original PATH and name
+• Deletion Date/Time
+- Files Preceded by $R###### files contain
+• Recovery Data
+
+Name:
+Last-Visited MRU
+
+Content:
+Description:
+Tracks the specific executable used by an application to open
+the files documented in the OpenSaveMRU key. In addition,
+each value also tracks the directory location for the last file
+that was accessed by that application.
+
+Location:
+XP
+NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\
+LastVisitedMRU
+Win7/8/10
+NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\
+LastVisitedPidlMRU
+
+Interpretation:
+Tracks the application executables used to open files in
+OpenSaveMRU and the last file path used
+
+Name:
+XP Recycle Bin
+
+Content:
+Description:
+The recycle bin is a very important location on a Windows file
+system to understand. It can help you when accomplishing
+a forensic investigation, as every file that is deleted from a
+Windows recycle bin aware program is generally first put in
+the recycle bin. 
+
+Location:
+Hidden System Folder
+Windows XP
+• C:\RECYCLER” 2000/NT/XP/2003
+• Subfolder is created with user’s SID
+• Hidden file in directory called “INFO2”
+• INFO2 Contains Deleted Time and Original Filename
+• Filename in both ASCII and UNICODE
+
+Interpretation:
+• SID can be mapped to user via Registry Analysis
+• Maps file name to the actual name and path it was deleted from

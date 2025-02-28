@@ -1,0 +1,150 @@
+Section:
+Account Usage
+
+Name:
+Last Login
+   
+Content:
+Description:
+Lists the local accounts of the system and their equivalent
+security identifiers.
+
+Location:
+• C:\windows\system32\config\SAM • SAM\Domains\Account\Users
+
+Interpretation:
+• Only the last login time will be stored in the registry key
+
+Name:
+Last Password Change
+   
+Content:
+Description:
+Lists the last time the password of a specific local user has been
+changed.
+
+Location:
+• C:\windows\system32\config\SAM • SAM\Domains\Account\Users
+
+Interpretation:
+• Only the last password change time will be stored in the
+registry key
+
+Name:
+RDP Usage
+   
+Content:
+Description:
+Track Remote Desktop Protocol logons to target machines.
+
+Location:
+Win7/8/10:
+%SYSTEM ROOT%\System32\winevt\logs\Security.evtx
+
+Interpretation:
+• Win7/8/10 – Interpretation
+- Event ID 4778 – Session Connected/Reconnected
+- Event ID 4779 – Session Disconnected
+• Event log provides hostname and IP address of remote
+machine making the connection
+• On workstations you will often see current console session
+disconnected (4779) followed by RDP connection (4778)
+
+Name:
+Services Events
+   
+Content:
+Description:
+• Analyze logs for suspicious services running at boot time
+• Review services started or stopped around the time of a
+suspected compromise
+
+Location:
+All Event IDs reference the System Log
+7034 – Service crashed unexpectedly
+7035 – Service sent a Start/Stop control
+7036 – Service started or stopped
+7040 – Start type changed (Boot | On Request | Disabled)
+7045 – A service was installed on the system (Win2008R2+)
+4697 – A service was installed on the system (from Security log)
+
+Interpretation:
+• All Event IDs except 4697 reference the System Log
+• A large amount of malware and worms in the wild utilize
+Services
+• Services started on boot illustrate persistence (desirable in
+malware)
+• Services can crash due to attacks like process injection
+
+Name:
+Logon Types
+   
+Content:
+Description:
+Logon Events can give us very specific information regarding
+the nature of account authorizations on a system if we know
+where to look and how to decipher the data that we find. In
+addition to telling us the date, time, username, hostname, and
+success/failure status of a logon, Logon Events also enables us
+to determine by exactly what means a logon was attempted.
+
+Location:
+Win7/8/10:
+Event ID 4624
+
+Interpretation:
+Logon Type Explanation
+2 Logon via console
+3 Network Logon
+4 Batch Logon
+5 Windows Service Logon
+7 Credentials used to unlock screen
+8 Network logon sending credentials (cleartext)
+9 Different credentials used than logged on user
+10 Remote interactive logon (RDP)
+11 Cached credentials used to logon
+12 Cached remote interactive (similar to Type 10)
+13 Cached unlock (similar to Type 7)
+
+Name:
+Authentication Events
+   
+Content:
+Description:
+Authentication mechanisms
+
+Location:
+Recorded on system that authenticated credentials
+Local Account/Workgroup = on workstation
+Domain/Active Directory = on domain controller
+Win7/8/10:
+%SYSTEM ROOT%\System32\winevt\logs\Security.evtx
+
+Interpretation:
+Event ID Codes (NTLM protocol)
+• 4776: Successful/Failed account authentication
+Event ID Codes (Kerberos protocol)
+• 4768: Ticket Granting Ticket was granted (successful logon)
+• 4769: Service Ticket requested (access to server resource)
+• 4771: Pre-authentication failed (failed logon)
+
+Name:
+Success/Fail Logons
+   
+Content:
+Description:
+Determine which accounts have been used for attempted
+logons. Track account usage for known compromised accounts.
+
+Location:
+Win7/8/10:
+%system root%\System32\winevt\logs\Security.evtx
+
+Interpretation:
+• Win7/8/10 – Interpretation
+• 4624 – Successful Logon
+• 4625 – Failed Logon
+• 4634 | 4647 – Successful Logoff
+• 4648 – Logon using explicit credentials (Runas)
+• 4672 – Account logon with superuser rights (Administrator)
+• 4720 – An account was created

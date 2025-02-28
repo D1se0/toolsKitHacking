@@ -1,0 +1,189 @@
+Section:
+External Device/USB Usage
+
+Name:
+Key Identification
+
+Content:
+Description:
+Track USB devices plugged into a machine
+
+Location:
+• SYSTEM\CurrentControlSet\Enum\USBSTOR
+• SYSTEM\CurrentControlSet\Enum\USB
+
+Interpretation:
+• Identify vendor, product, and version of a USB device
+plugged into a machine
+• Identify a unique USB device plugged into the machine
+• Determine the time a device was plugged into the
+machine
+• Devices that do not have a unique serial number will
+have an “&” in the second character of the serial number.
+
+Name:
+First/Last Times
+
+Content:
+Description:
+Determine temporal usage of specific USB devices
+connected to a Windows Machine.
+
+Location:
+Plug and Play Log Files
+XP:
+C:\Windows\setupapi.log
+Win7/8/10:
+C:\Windows\inf\setupapi.dev.log
+
+Interpretation:
+• Search for Device Serial Number
+• Log File times are set to local time zone
+Location First, Last, and Removal Times
+(Win7/8/10 Only)
+System Hive:
+\CurrentControlSet\Enum\USBSTOR\Ven_Prod_Version\USBSerial#\Properties\
+{83da6326-97a6-4088-9453-a19231573b29}\####
+0064 = First Install (Win7-10)
+0066 = Last Connected (Win8-10)
+0067 = Last Removal (Win8-10)
+
+Name:
+User
+
+Content:
+Description
+Find User that used the Unique USB Device
+
+Location:
+• Look for GUID from SYSTEM\MountedDevices
+• NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\
+MountPoints2
+
+Interpretation:
+This GUID will be used next to identify the user that
+plugged in the device. The last write time of this key
+also corresponds to the last time the device was
+plugged into the machine by that user. The number
+will be referenced in the user’s personal mountpoints
+key in the NTUSER.DAT Hive.
+
+Name:
+PnP Events
+
+Content:
+Description:
+When a Plug and Play driver install is
+attempted, the service will log an ID
+20001 event and provide a Status within
+the event. It is important to note that
+this event will trigger for any Plug and
+Play-capable device, including but not
+limited to USB, Firewire, and PCMCIA
+devices
+
+Location:
+Win7/8/10:
+%system root%\System32\winevt\logs\System.evtx
+
+Interpretation:
+• Event ID: 20001 – Plug and Play driver
+install attempted
+• Event ID 20001
+• Timestamp
+• Device information
+• Device serial number
+• Status (0 = no errors)
+
+Name:
+Volume Serial Number
+
+Content:
+Description:
+Discover the Volume Serial Number of
+the Filesystem Partition on the USB.
+(NOTE: This is not the USB Unique Serial
+Number, which is hardcoded into the
+device firmware.)
+
+Location:
+• SOFTWARE\Microsoft\WindowsNT\CurrentVersion\
+ENDMgmt
+• Use Volume Name and USB Unique
+Serial Number to:
+ - Find last integer number in line
+ - Convert Decimal Serial Number into
+Hex Serial Number
+
+Interpretation:
+• Knowing both the Volume Serial
+Number and the Volume Name,
+you can correlate the data across
+SHORTCUT File (LNK) analysis and the
+RECENTDOCs key.
+• The Shortcut File (LNK) contains the
+Volume Serial Number and Name
+• RecentDocs Registry Key, in most
+cases, will contain the volume name
+when the USB device is opened via
+Explorer
+
+Name:
+Drive Letter and Volume Name
+
+Content:
+Description:
+Discover the last drive letter of the USB
+Device when it was plugged into the machine.
+
+Location:
+XP:
+• Find ParentIdPrefix – SYSTEM\CurrentControlSet\Enum\
+USBSTOR
+• Using ParentIdPrefix Discover Last Mount Point
+– SYSTEM\MountedDevices
+Win7/8/10:
+• SOFTWARE\Microsoft\Windows Portable Devices\Devices
+• SYSTEM\MountedDevices
+- Examine Drive Letters looking at Value
+Data Looking for Serial Number
+
+Interpretation:
+Identify the USB device that was last mapped
+to a specific drive letter. This technique will
+only work for the last drive mapped. It does
+not contain historical records of every drive
+letter mapped to a removable drive.
+
+Name:
+Shortcut (LNK) Files
+
+Content:
+Description:
+Shortcut files automatically created by Windows
+• Recent Items
+• Open local and remote data files and
+documents will generate a shortcut file (.lnk)
+
+Location:
+XP:
+• %USERPROFILE%\Recent
+Win7/8/10
+• %USERPROFILE%\AppData\Roaming\Microsoft\Windows\
+Recent
+• %USERPROFILE%\AppData\Roaming\Microsoft\Office\Recent
+
+Interpretation:
+• Date/Time file of that name was first opened
+- Creation Date of Shortcut (LNK) File
+• Date/Time file of that name was last opened
+- Last Modification Date of Shortcut (LNK) File
+• LNKTarget File (Internal LNK File
+Information) Data:
+ - Modified, Access, and Creation times of the
+target file
+ - Volume Information (Name, Type, Serial
+Number)
+ - Network Share information
+ - Original Location
+ - Name of System

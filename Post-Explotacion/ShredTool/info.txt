@@ -1,0 +1,8 @@
+#La primera se llama "shred" lo que hace es sobrescribir con otra informacion 
+#diferente esas direcciones de memoria en las cuales estan nuestra huella de atacante, 
+#pudiendo asi borrar lo anterior por si se recuperar el disco duro para hacer un reconocimiento de analisis forense.
+
+#Ejemplo de uso:
+
+$ shred -vfz <FILE>
+

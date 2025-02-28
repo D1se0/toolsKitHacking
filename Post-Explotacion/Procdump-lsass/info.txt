@@ -1,0 +1,19 @@
+#Pero lo que podemos hacer es realizar un volcado de memoria de la maquina, y esto llevarlo a nuestro host, 
+#una vez estando en nuestro host, podremos utilizar "mimikatz" para extraer credenciales, "hashes", etc...
+
+#El proceso que se encarga de gestionar el "logon" de los usuario en el sistema operativo, que administra estas contraseñas, 
+#estos "hashes", etc... Es el proceso "lsass" por lo tanto vamos a intentar hacer un "dump" de la memoria 
+#que tiene este proceso que se esta ejecutando ahora mismo.
+
+#Descargar "Procdump" de la siguiente forma:
+
+$ ./DownloadProcdump.sh
+
+#Abriremos un "cmd" como administrador ("Como si ya hubieramos comprometido la maquina siendo admins") 
+#y nos iremos a la carpeta donde esta la herramienta "ProcDump":
+
+$ cd C:\Users\user\Desktop\Procdump
+
+#Y ahora realizaremos el volcado del proceso "lsass.exe" de la siguiente forma:
+
+$ procdump64.exe -accepteula -ma lsass.exe lsass.dmp
