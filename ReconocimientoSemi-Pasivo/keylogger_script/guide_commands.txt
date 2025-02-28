@@ -1,0 +1,7 @@
+# Lo primero que tendremos que ejecutar es el archivo requirements.sh para que todo funcione bien como root.
+
+$ ./requirements.sh
+
+# Despues ya podremos probarlo siguiendo las instrucciones de mi GitBook.
+
+URL = https://dise0.gitbook.io/h4cker_b00k/tecnica-keylogger-automatizada/keylogger-script-automatizado-linux-y-windows 

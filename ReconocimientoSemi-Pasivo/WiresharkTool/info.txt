@@ -1,0 +1,19 @@
+#En "wireshark" cuando lo ejecutamos y se abre, veremos varias interfaces de "red", 
+#si el equipo estuviera con mas adaptadores de red, en "wireshark" se veria, 
+#pero vamos hablar de las que vienen por defecto, que entre ellas serian las 3 primeras que aparecen:
+
+===============
+eth0
+Loopback: lo
+any
+===============
+
+#"eth0" es la tipica interfaz de "red" primaria donde pasa practicamente todo nuestro trafico de "red" a nivel de "internet"
+
+#"Loopback: lo" es el "localhost" de nuestra "red" de forma simplificada.
+
+#"any" seria cualquier interfaz de "red".
+
+#En nuestro caso vamos a capturar el trafico de la interfaz de "red" tipica "eth0" por lo que le daremos doble click 
+#y entraremos en un modo "monitor" de captura de "red" entre los "nodos" que esten en dicha "red" 
+#o cualquier cosa que se este transmitiendo por la "red".

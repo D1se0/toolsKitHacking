@@ -1,0 +1,14 @@
+#Cuando hay una conexion entre varios equipos se le denomina ``red`` y cuando varios equipos estan en una ``red`` a estos se les llama ``nodos`` (Equipos de una red).
+
+#Cuando estos datos llegan a otro "nodo" de la "red" con el que estamos intercambiando informacion, 
+#este "nodo" recibe los datos (Una cadena de "bytes") y de alguna manera tiene que interpretarlos, es decir, 
+#tiene que determinar que del "byte 0" al "byte 10" va un campo determinado, 
+#que por ejemplo puede ser un campo de texto, del "byte 11" al "byte 15" va otro campo determinado y asi sucesivamente. 
+#Esto es para poder entender que informacion nos esta enviando el otro "nodo", pero a priori es simplemente una "ristra de bytes", 
+#para interpretar esta informacion que se esta intercambiando entre diferentes "nodos" de la "red" 
+#lo que se utiliza son los "prtocolos de red" 
+#(Conjunto de reglas que se aplica sobre la informacion recibida de una "red" de manera que se pueda interpretar), 
+#dependiendo del protocolo que se este implementando se interpretara la informacion de una manera o de otra.
+
+#Los "Sniffers" son herramientas las cuales se van a situar en nuestro "sistema operativo" 
+#y su funcion sera "monitorizar" todo el "trafico de red" tanto entrante como saliente que estamos intercambiando con otros "nodos" de la "red".

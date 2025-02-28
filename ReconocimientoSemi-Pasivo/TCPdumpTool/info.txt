@@ -1,0 +1,54 @@
+#Esta herramienta va por terminal solamente, viene con "kali" por defecto y es como "wireshark" solo que por terminal, 
+#es una herramienta muy completita.
+
+$ sudo tcpdump -D
+
+#Nos mostrara las interfaces que tenemos activas.
+
+$ sudo tcpdump -i eth0
+
+#Con el "-i" especificamos en la interfaz de "red" en la que queremos escuchar.
+
+#Si ahora mismo buscamos algo o generamos trafico de "red" esta herramienta lo capturara todo y lo mostrara por terminal todo el flujo de "red".
+
+#Si queremos ver mas informacion que simplemente conexiones de un sitio a otro, podremos hacerlo con el parametro "-v" ("verbose"):
+
+$ sudo tcpdump -v -i eth0
+
+#>Explicacion de lo que es "ICMP"
+
+===============================================================================================================================
+#> ICMP (Internet Control Message Protocol) es un protocolo de red usado para enviar mensajes de control y diagnóstico entre dispositivos en una red IP.
+
+#> Su propósito es notificar problemas de comunicación, informar errores y diagnosticar la conectividad.
+
+#> Mensajes ICMP comunes:
+    #- Echo Request y Echo Reply: usados por "ping" para verificar conectividad.
+    #- Destination Unreachable: informa cuando un paquete no puede llegar a su destino.
+    #- Time Exceeded: indica que un paquete superó su tiempo de vida (TTL).
+
+#> Es esencial para el monitoreo y mantenimiento de la red, pero también puede representar riesgos de seguridad, por lo que a veces se limita o bloquea.
+
+#Es un protocolo auxiliar para la gestión de la red, no para transferir datos de usuario.
+===============================================================================================================================
+
+$ sudo tcpdump icmp
+
+#Si por ejemplo queremos filtrar el que solo muestre el trafico de "red" de un "host" en concreto (De un dominio o IP) 
+#podremos hacerlo de la siguiente forma:
+
+$ sudo tcpdump host <IP>
+
+#Si todo el trafico de "red" queremos volcarlo a un fichero ".pcap" para luego poder verlo en "wireshark" podremos hacerlo de la siguiente forma:
+
+$ sudo tcpdump -i eth0 -w Desktop/capture.pcap
+
+#Si queremos filtrar todos los paquetes que van dirigidos al puerto "53" que seria el "DNS" 
+#sobre la captura que realizamos anteriormente del ".pcap" podremos hacerlo de la siguiente forma:
+
+$ sudo tcpdump -n port 53 -v -r Desktop/capture.pcap
+
+#Si por ejemplo queremos filtrar por otro puerto que tiene mucha mas informacion, 
+#pero solo queremos una informacion especifica de todo ese "trafico de red" lo haremos de la siguiente forma:
+
+$ sudo tcpdump -n port 80 -v -r Desktop/capture.pcap | grep phrack.org

@@ -1,0 +1,7 @@
+Primero instalar el archivo llamado requeriments.sh
+
+$ ./requeriments.sh
+
+Una vez echo eso, si ponemos lo siguiente veremos que la herramienta estara instalada perfectamente
+
+$ directorybrute -h
