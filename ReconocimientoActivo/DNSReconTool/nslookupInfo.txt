@@ -1,0 +1,126 @@
+#Si los servidores "DNS" de dicha organizacion estan mal configurados podremos obtener esos ficheros de zona, 
+#descargandonoslo mediante dicha herramienta, al lo que se le llama "Transferencia de zona".
+
+#Si ponemos lo siguiente:
+
+$ nslookup
+
+#Nos meteremos en la linea de comandos de la herramienta, por lo que empezaremos a configurar sus respectivos para metros.
+
+=======================
+set type=ns
+zonetransfer.me
+======================
+
+#Con "set type=ns" lo que hacemos es especificar que tipo de registro "DNS" quiero obtener, en este caso los "NS" (Name Server).
+#A continuacion pondremos el dominio del cual queremos obtener dichos "NS", en mi caso "zonetransfer.me".
+
+#Y esto nos devolvera la informacion de los "Names Servers".
+
+=========================================================
+Server:		192.168.5.2
+Address:	192.168.5.2#53
+
+Non-authoritative answer:
+zonetransfer.me	nameserver = nsztm2.digi.ninja.
+zonetransfer.me	nameserver = nsztm1.digi.ninja.
+
+Authoritative answers can be found from:
+nsztm2.digi.ninja	internet address = 34.225.33.2
+==========================================================
+
+#Veremos que habra 2 "Names Servers" bajo ese dominio.
+
+#Por lo que ahora vamos a ver si nos envia los registros de las zona "DNS" probando de la siguiente forma:
+
+$ set type=any
+
+$ ls -d zonetransfer.me
+
+#Con "set type=any" lo que estamos haciendo es que nos envie todos los registros que contenga.
+#Y para iniciar esta transferencia de zona lo que hacemos es poner "ls -d" 
+#y el dominio de la cual queremos extraer esos ficheros en mi caso "zonetransfer.me"
+
+#Pero en "kali" nos dira que el comando "ls" esta desactivado por medidas de seguridad, 
+#y en nuestro "host" en "windows" si hacemos esto mismo si nos dejara, 
+#pero si ponemos "set type=any" y "ls -d zonetransfer.me" nos dara 
+#como resultado "Unknow" por que no sabe de donde cogerlo, 
+#por lo que realmente habria que poner el "Name Server" bajo el que esta sujeto dicho dominio
+
+$ set type=any
+
+$ server nsztm1.digi.ninja
+
+#Y una vez echo esto, si ponemos el siguiente comando como estaba antes:
+
+$ ls -d zonetransfer.me
+
+#Ahora si nos dara el fichero de zona:
+
+=====================================================================================
+[nsztm1.digi.ninja]
+ zonetransfer.me.               SOA    nsztm1.digi.ninja robin.digi.ninja. (2019100801 172800 900 1209600 3600)
+ zonetransfer.me.               TXT             "google-site-verification=tyP28J7JAUHA9fw2sHXMgcCC0I6XBmmoVi04VlMewxA"
+
+ zonetransfer.me.               MX     0    ASPMX.L.GOOGLE.COM
+ zonetransfer.me.               MX     10   ALT1.ASPMX.L.GOOGLE.COM
+ zonetransfer.me.               MX     10   ALT2.ASPMX.L.GOOGLE.COM
+ zonetransfer.me.               MX     20   ASPMX2.GOOGLEMAIL.COM
+ zonetransfer.me.               MX     20   ASPMX3.GOOGLEMAIL.COM
+ zonetransfer.me.               MX     20   ASPMX4.GOOGLEMAIL.COM
+ zonetransfer.me.               MX     20   ASPMX5.GOOGLEMAIL.COM
+ zonetransfer.me.               A      5.196.105.14
+ zonetransfer.me.               NS     nsztm1.digi.ninja
+ zonetransfer.me.               NS     nsztm2.digi.ninja
+ zonetransfer.me.               HINFO  Casio fx-700G  Windows XP
+ _acme-challenge                TXT             "6Oa05hbUJ9xSsvYy7pApQvwCUSSGgxvrbdizjePEsZI"
+
+ _sip._tcp                      SRV    priority=0, weight=0, port=5060, www.zonetransfer.me
+ 14.105.196.5.IN-ADDR.ARPA      PTR    www.zonetransfer.me
+ asfdbauthdns                   AFSDB  1    asfdbbox.zonetransfer.me
+ asfdbbox                       A      127.0.0.1
+ asfdbvolume                    AFSDB  1    asfdbbox.zonetransfer.me
+ canberra-office                A      202.14.81.230
+ cmdexec                        TXT             "; ls"
+
+ contact                        TXT             "Remember to call or email Pippa on +44 123 4567890 or pippa@zonetransfer.me when making DNS changes"
+
+ dc-office                      A      143.228.181.132
+ deadbeef                       AAAA   dead:beaf::
+ dr                             29
+ DZC                            TXT             "AbCdEfG"
+
+ email                          35
+ email                          A      74.125.206.26
+ Hello                          TXT             "Hi to Josh and all his class"
+
+ home                           A      127.0.0.1
+ Info                           TXT             "ZoneTransfer.me service provided by Robin Wood - robin@digi.ninja. See http://digi.ninja/projects/zonetransferme.php for more information."
+
+ internal                       NS     intns1.zonetransfer.me
+ internal                       NS     intns2.zonetransfer.me
+ intns1                         A      81.4.108.41
+ intns2                         A      167.88.42.94
+ office                         A      4.23.39.254
+ ipv6actnow.org                 AAAA   2001:67c:2e8:11::c100:1332
+ owa                            A      207.46.197.32
+ robinwood                      TXT             "Robin Wood"
+
+ rp                             RP     robin.zonetransfer.me  robinwood.zonetransfer.me
+ sip                            35
+ sqli                           TXT             "' or 1=1 --"
+
+ sshock                         TXT             "() { :]}; echo ShellShocked"
+
+ staging                        CNAME  www.sydneyoperahouse.com
+ alltcpportsopen.firewall.test  A      127.0.0.1
+ testing                        CNAME  www.zonetransfer.me
+ vpn                            A      174.36.59.154
+ www                            A      5.196.105.14
+ xss                            TXT             "'><script>alert('Boo')</script>"
+
+ zonetransfer.me.               SOA    nsztm1.digi.ninja robin.digi.ninja. (2019100801 172800 900 1209600 3600)
+=====================================================================================
+
+#Con esto estariamos accediendo al fichero literar de zona de ese "Name Server" 
+#mostrando bastante mas informacion de lo que muestran otras paginas y pudiendo descubrir informacion bastante importante.

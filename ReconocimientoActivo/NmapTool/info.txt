@@ -1,0 +1,134 @@
+#Esta es una de las herramientas mas importantes a la hora de hacer un reconocimiento de red o de hosts, 
+#para descubrir puertos, nodos, informacion sobre los hosts encontrados diciendo versiones con scripts de la propia herramienta, etc... 
+#Es una herramienta muy completa y es la mas utilizada para los expertos de ciberseguridad sobre todo en el hacking.
+
+#Para ver los hosts de una red (HostDiscovery):
+
+$ nmap -sn 10.10.11.0/24
+
+#Una vez sabiendo los "hosts" que estan corriendo en nuestra red, si hacemos el siguiente comando:
+
+$ nmap -PS 10.10.11.20
+
+#Por lo que vemos con el parametro "-PS" lo que hacemos es probar todos los puertos 
+#y ver cuales nos responden mostrando solo los resultados de los cuales estan activos, 
+#el unico inconveniente es que este tipo de escaneos hacen mucho ruido, mucho trafico de red, 
+#pero si queremos no hacer tanto trafico de red y solamente escanear un puerto en concreto para verificar si esta activo o no, 
+#podremos hacerlo de la siguiente forma:
+
+$ nmap -PS 10.10.11.20 -p 80
+
+#Para verificar que el "host" al que queremos escanear dicho puerto esta activo, 
+#se puede hacer añadiendole al parametro "-PS" un par de puertos para verificar si estan activos 
+#y de ser asi le respondera por lo que verificara que esta activo el "host" y despues escaneara el puerto de "-p" una vez verificado esto anterior
+
+$ nmap -PS21,22,23 10.10.11.20 -p 21
+
+#Con el parametro "-sS" en "nmap" lo que haria sera hacer una peticion de forma individual a cada puerto que este escaneando, 
+#tanto si le especificamos que sea a todos los puertos "-p-" como si es a un puerto en especifico "-p 21", 
+#con esto lo que hacemos es no realizar tanta interaccion de trafico de red dejando a median el "three-way handshake" 
+#cuando ya sabemos que dicho/s puerto/s esta/n abierto/s.
+
+$ sudo nmap -sS 10.10.11.20 -p 80
+
+#Lo que estamos viendo aqui es que encontramos que el puerto esta "open" por lo que si esta corriendo una aplicacion en el puerto "80", 
+#tambien nos dice que probablemente este corriendo un "HTTP" pero no nos lo garantiza.
+
+#Si queremos escanear todos los puertos de todos los "nodos" de un segmento de red, lo que podremos hacer es lo siguiente:
+
+$ sudo nmap -sS 10.10.11.0/24
+
+#Si nosotros queremos generar un reporte de forma profesional sobre la informacion de los "hosts", los puertos, etc... 
+#Lo podremos hacer de la siguiente forma:
+
+$ sudo nmap -v --reason -sS -oX puertos.xml --stylesheet="https://svn.nmap.org/nmap/docs/nmap.xsl" 10.10.11.20-25
+
+#Con "-v" especificamos que nos de mas informacion del escaneo que esta realizando.
+#Con "--reason" especificamos que nos de informacion de por que motivo los puertos estan abiertos, cerrados, filtrados, etc...
+#Con "-oX" lo que hacemos es exportar toda esta informacion que nos proporcione "nmap" a un fichero como le llamemos de extension "XML".
+#Con "--stylesheet=" lo que hacemos es especificarle que un estilo para el reporte que nos genere y no se vea tan crudo, 
+#en mi caso es u nestilo que ya nos proporciona "nmap" en dicha URL.
+
+#Si queremos hacer el "three-way handshake" entero sin que se quede a median como haciamos con el "-sS" podremos hacerlo de la siguiente forma:
+
+$ sudo nmap -sT 10.10.11.20 -p 80
+
+#Con el "-sT" lo que hacemos es que haga todos los pasos del "three-way handshake" de comprobaciones.
+
+#De normal los escaneo de puertos, se suelen hacer enviando paquetes "TCP" que es lo mas normal, 
+#solo que hay veces en los que los puertos estan en "UDP", y "TCP" no llega a descubrirlo bien ya que esta por otro protocolo de red, 
+#por lo que si queremos enviar paquetes "UDP" podremos hacerlo de la siguiente forma:
+
+$ sudo nmap -sU 10.10.11.20 -p 53
+
+#Para nosotros poder descubrir un servicio con su version en un determinado puerto o en varios puertos de un "host" o de varios "hosts" 
+#podemos hacerlo con el siguiente comando:
+
+$ sudo nmap -sV 10.10.11.20 -p 21
+
+#Con "-sV" especificamos que nos de informacion adiccional del servicio, la version, etc... Que esta corriendo en dicho puerto.
+
+#Si ahora queremos exportar los datos de los "hosts" que esten activos mas sus servicios 
+#y versiones en un fichero "XML" con estilo dentro de un segmento de red en un rango determinado por nosotros, 
+#podremos hacerlo de la siguiente forma:
+
+$ sudo nmap -v --reason -sV -oX servicios.xml --stylesheet="https://svn.nmap.org/nmap/docs/nmap.xsl" 10.10.11.20-25
+
+#Si nosotros queremos explotar alguna vulnerabilidad, escalar privilegios, etc... 
+#Una de las cosas mas importantes es saber a que sistema operativo nos estamos enfrentando, 
+#de esta forma podemos utilizar una serie de tecnicas u otras, dependiendo del S.O.
+
+$ sudo nmap -v -O 10.10.11.20
+
+#Si por ejemplo queremos sacar mas informacion del sistema operativo con un script de "SMB" podremos hacerlo asi:
+
+$ sudo nmap -v -sS -p 139,445 --script=smb-os-discovery 10.10.11.20
+
+#Si queremos identificar que carpetas compartidas esta exponiendo dicha maquina mediante el "SMB" podremos hacerlo con el siguiente script:
+
+$ sudo nmap -v -sS -p 139,445 --script=smb-enum-shares 10.10.11.20
+
+#Si queremos listar usuarios mediante el "SMB" podremos hacerlo con el siguiente script:
+
+$ sudo nmap -v -sS -p 139,445 --script=smb-enum-users 10.10.11.20
+
+#Si nosotros intentamos ejecutar este comando en el puerto "161" que es donde esta alojado el servicio de "SNMP" mediante "TCP":
+
+$ sudo nmap -v -sS -p161 10.10.11.20
+
+#Veremos que esta "closed" por que lo estamos haciendo mediante "TCP" ya que el servicio "SNMP" esta por "UDP" 
+#por lo que tendremos que realizar lo siguiente:
+
+$ sudo nmap -v -sU -p161 10.10.11.20
+
+#Con los scripts de "nmap" podemos recolectar informacion de este servidor, es mas, 
+#este servicio actualmente en muchas ocasiones esta mal configurado y se puede obtener mucha informacion de el, 
+#no se sabe por que, pero muchas emrpesas u organizaciones bastantes suelen tener este servicio mal configurado 
+#y de ahi se puede obtener mucha informacion incluso la intrusion del mismo.
+
+#Con el script "snmp-win32-software" se puede obtener informacion del sistema, 
+#mas las versiones de algunos procesos que se esten ejecutando en dicha maquina, 
+#pero por ejemplo veamos si esta mal configurado y nos deja enumerar usuarios.
+
+$ sudo nmap -v -sU -p161 --script=snmp-win32-users 10.10.11.20
+
+#Si queremos ver los procesos que se estan ejecutando en ese momento de la maquina, se podria hacer con el siguiente script:
+
+$ sudo nmap -v -sU -p161 --script=snmp-processes 10.10.11.20
+
+#Podemos utilizar los scripts de "namp" para hacer analisis de vulnerabilidades, 
+#en concreto los scripts llamados "vuln" por lo que si queremos hacer un escaneo de vulnerabilidades de una maquina de forma generica, 
+#pondremos el siguiente comando:
+
+$ sudo nmap -v -sS --script=vuln 10.10.11.20
+
+#Normalmente "nmap" no es utilizado para escanear vulnerabilidades, 
+#ya que la informacion que te da es mucha por terminal y muchas veces es complicado de ver, 
+#ya que vemos que hay mcuhas vulneravilidades las que ha sacado, pero para entenderlo cuesta, 
+#por lo que podremos exportarlo a un fichero en el que se pueda ver mejor de la siguiente forma:
+
+$ sudo nmap -v -sS -oX vulnerabilidades.xml --stylesheet="https://svn.nmap.org/nmap/docs/nmap.xsl" --script=vuln 10.10.11.20,22
+
+#Podemos hacer el mismo escaneo, pero en vez de hacerlo por "TCP" lo podremos hacer por "UDP" de la siguiente forma:
+
+$ sudo nmap -v -sU -oX vulnerabilidades.xml --stylesheet="https://svn.nmap.org/nmap/docs/nmap.xsl" --script=vuln 10.10.11.20,22

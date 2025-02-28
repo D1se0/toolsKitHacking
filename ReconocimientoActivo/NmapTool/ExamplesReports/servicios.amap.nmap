@@ -1,0 +1,18 @@
+# Nmap 7.94SVN scan initiated Mon Nov 11 04:33:44 2024 as: nmap -v --reason -sS -oA servicios.amap 192.168.16.129
+Nmap scan report for 192.168.16.129
+Host is up, received arp-response (0.00068s latency).
+Not shown: 991 filtered tcp ports (no-response)
+PORT     STATE  SERVICE      REASON
+21/tcp   open   ftp          syn-ack ttl 64
+22/tcp   open   ssh          syn-ack ttl 64
+80/tcp   open   http         syn-ack ttl 64
+445/tcp  open   microsoft-ds syn-ack ttl 64
+631/tcp  open   ipp          syn-ack ttl 64
+3000/tcp closed ppp          reset ttl 64
+3306/tcp open   mysql        syn-ack ttl 64
+8080/tcp open   http-proxy   syn-ack ttl 64
+8181/tcp closed intermapper  reset ttl 64
+MAC Address: 00:0C:29:29:E7:FF (VMware)
+
+Read data files from: /usr/bin/../share/nmap
+# Nmap done at Mon Nov 11 04:34:02 2024 -- 1 IP address (1 host up) scanned in 17.97 seconds

@@ -1,0 +1,19 @@
+#Lo que va hacer esta herramienta es clasificar en base a un ranking de que es mas interesante 
+#continuar investigando del punto de vista del "hacking ético", para realizar esta clasificacion "BATEA" 
+#utiliza una serie de tecnicas de "Machine Learning" y concretamente se basa en un algoritmo que 
+#se denomina "Isolation Forest" (Algoritmo de deteccion de anomalias).
+
+#Por ejemplo nosotros realizamos un escaneo de servicios o de "hosts" en este caso con "nmap" y el "output" 
+#es lo que le tendremos que proporcionar a esta herramienta para que coja todos los "hosts" que ha descubierto 
+#con sus servicios y realice un ranking, es decir, una clasificacion de cuales de esos "hosts" tiene mas interes 
+#desde el punto de vista de seguridad para comenzar analizar.
+
+#Para poder utilziar la herramienta BATEA le tendremos que pasar un fichero de reconocimiento:
+
+$ nmap -O -sV 10.10.11.0/24 -oX output.xml
+
+#Ahora se hara lo siguiente:
+
+$ batea -n 2 output.xml
+
+#Como estamos observando aqui, nos esta inidicando 2 "host" los cuales nos recomienda priorizar por el nivel de vulnerabilidad que tienen

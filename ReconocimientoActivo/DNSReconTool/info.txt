@@ -1,0 +1,159 @@
+#Pero para que todo esto funcione en "kali" podemos utilizar una herramienta llamada "dnsrecon" que ya viene instalada en "kali" por defecto.
+
+#Podremos hacerlo con un comando haciendo de forma automatica todo lo anterior con el siguiente comando:
+
+$ dnsrecon -d zonetransfer.me -t axfr
+
+=====================================================================================
+[*] Checking for Zone Transfer for zonetransfer.me name servers
+[*] Resolving SOA Record
+[+] 	SOA nsztm1.digi.ninja 81.4.108.41
+[*] Resolving NS Records
+[*] NS Servers found:
+[+] 	NS nsztm2.digi.ninja 34.225.33.2
+[+] 	NS nsztm1.digi.ninja 81.4.108.41
+[*] Removing any duplicate NS server IP Addresses...
+[*]  
+[*] Trying NS server 34.225.33.2
+[+] 34.225.33.2 Has port 53 TCP Open
+[+] Zone Transfer was successful!!
+[*] 	SOA nsztm1.digi.ninja 81.4.108.41
+[*] 	NS nsztm1.digi.ninja 81.4.108.41
+[*] 	NS nsztm2.digi.ninja 34.225.33.2
+[*] 	NS intns1.zonetransfer.me 81.4.108.41
+[*] 	NS intns2.zonetransfer.me 52.91.28.78
+[*] 	TXT google-site-verification=tyP28J7JAUHA9fw2sHXMgcCC0I6XBmmoVi04VlMewxA
+[*] 	TXT 2acOp15rSxBpyF6L7TqnAoW8aI0vqMU5kpXQW7q4egc
+[*] 	TXT 6Oa05hbUJ9xSsvYy7pApQvwCUSSGgxvrbdizjePEsZI
+[*] 	TXT ; ls
+[*] 	TXT Remember to call or email Pippa on +44 123 4567890 or pippa@zonetransfer.me when making DNS changes
+[*] 	TXT AbCdEfG
+[*] 	TXT Hi to Josh and all his class
+[*] 	TXT ZoneTransfer.me service provided by Robin Wood - robin@digi.ninja. See http://digi.ninja/projects/zonetransferme.php for more information.
+[*] 	TXT Robin Wood
+[*] 	TXT ' or 1=1 --
+[*] 	TXT () { :]}; echo ShellShocked
+[*] 	TXT '><script>alert('Boo')</script>
+[*] 	PTR www.zonetransfer.me 5.196.105.14
+[*] 	MX @.zonetransfer.me ASPMX.L.GOOGLE.COM 74.125.133.26
+[*] 	MX @.zonetransfer.me ASPMX.L.GOOGLE.COM 2a00:1450:400c:c0c::1a
+[*] 	MX @.zonetransfer.me ALT1.ASPMX.L.GOOGLE.COM 142.250.153.26
+[*] 	MX @.zonetransfer.me ALT1.ASPMX.L.GOOGLE.COM 2a00:1450:4013:c16::1b
+[*] 	MX @.zonetransfer.me ALT2.ASPMX.L.GOOGLE.COM 142.251.9.27
+[*] 	MX @.zonetransfer.me ALT2.ASPMX.L.GOOGLE.COM 2a00:1450:4025:c03::1a
+[*] 	MX @.zonetransfer.me ASPMX2.GOOGLEMAIL.COM 142.250.153.26
+[*] 	MX @.zonetransfer.me ASPMX2.GOOGLEMAIL.COM 2a00:1450:4013:c16::1b
+[*] 	MX @.zonetransfer.me ASPMX3.GOOGLEMAIL.COM 142.251.9.26
+[*] 	MX @.zonetransfer.me ASPMX3.GOOGLEMAIL.COM 2a00:1450:4025:c03::1b
+[*] 	MX @.zonetransfer.me ASPMX4.GOOGLEMAIL.COM 142.250.150.27
+[*] 	MX @.zonetransfer.me ASPMX4.GOOGLEMAIL.COM 2a00:1450:4010:c1c::1b
+[*] 	MX @.zonetransfer.me ASPMX5.GOOGLEMAIL.COM 74.125.200.26
+[*] 	MX @.zonetransfer.me ASPMX5.GOOGLEMAIL.COM 2404:6800:4003:c00::1b
+[*] 	AAAA deadbeef.zonetransfer.me dead:beaf::
+[*] 	AAAA ipv6actnow.org.zonetransfer.me 2001:67c:2e8:11::c100:1332
+[*] 	A @.zonetransfer.me 5.196.105.14
+[*] 	A asfdbbox.zonetransfer.me 127.0.0.1
+[*] 	A canberra-office.zonetransfer.me 202.14.81.230
+[*] 	A dc-office.zonetransfer.me 143.228.181.132
+[*] 	A email.zonetransfer.me 74.125.206.26
+[*] 	A home.zonetransfer.me 127.0.0.1
+[*] 	A intns1.zonetransfer.me 81.4.108.41
+[*] 	A intns2.zonetransfer.me 52.91.28.78
+[*] 	A office.zonetransfer.me 4.23.39.254
+[*] 	A owa.zonetransfer.me 207.46.197.32
+[*] 	A alltcpportsopen.firewall.test.zonetransfer.me 127.0.0.1
+[*] 	A vpn.zonetransfer.me 174.36.59.154
+[*] 	A www.zonetransfer.me 5.196.105.14
+[*] 	CNAME staging.zonetransfer.me www.sydneyoperahouse.com 18.154.48.73
+[*] 	CNAME staging.zonetransfer.me www.sydneyoperahouse.com 18.154.48.27
+[*] 	CNAME staging.zonetransfer.me www.sydneyoperahouse.com 18.154.48.68
+[*] 	CNAME staging.zonetransfer.me www.sydneyoperahouse.com 18.154.48.10
+[*] 	CNAME staging.zonetransfer.me www.sydneyoperahouse.com 2600:9000:24be:7a00:7:60:4d00:93a1
+[*] 	CNAME staging.zonetransfer.me www.sydneyoperahouse.com 2600:9000:24be:7200:7:60:4d00:93a1
+[*] 	CNAME staging.zonetransfer.me www.sydneyoperahouse.com 2600:9000:24be:1400:7:60:4d00:93a1
+[*] 	CNAME staging.zonetransfer.me www.sydneyoperahouse.com 2600:9000:24be:e600:7:60:4d00:93a1
+[*] 	CNAME staging.zonetransfer.me www.sydneyoperahouse.com 2600:9000:24be:5a00:7:60:4d00:93a1
+[*] 	CNAME staging.zonetransfer.me www.sydneyoperahouse.com 2600:9000:24be:ca00:7:60:4d00:93a1
+[*] 	CNAME staging.zonetransfer.me www.sydneyoperahouse.com 2600:9000:24be:9800:7:60:4d00:93a1
+[*] 	CNAME staging.zonetransfer.me www.sydneyoperahouse.com 2600:9000:24be:8a00:7:60:4d00:93a1
+[*] 	SRV _sip._tcp.zonetransfer.me www 5060 0 no_ip
+[*] 	HINFO Casio fx-700G Windows XP
+[*] 	RP robin robinwood
+[*] 	AFSDB 1 asfdbbox
+[*] 	AFSDB 1 asfdbbox
+[*] 	LOC 53 20 56.558 N 1 38 33.526 W 0.00m
+[*] 	NAPTR P 1 1  email.zonetransfer.me E2U+email
+[*] 	NAPTR P 2 3 !^.*$!sip:customer-service@zonetransfer.me! . E2U+sip
+[*]  
+[*] Trying NS server 81.4.108.41
+[+] 81.4.108.41 Has port 53 TCP Open
+[+] Zone Transfer was successful!!
+[*] 	SOA nsztm1.digi.ninja 81.4.108.41
+[*] 	NS nsztm1.digi.ninja 81.4.108.41
+[*] 	NS nsztm2.digi.ninja 34.225.33.2
+[*] 	NS intns1.zonetransfer.me 81.4.108.41
+[*] 	NS intns2.zonetransfer.me 52.91.28.78
+[*] 	TXT google-site-verification=tyP28J7JAUHA9fw2sHXMgcCC0I6XBmmoVi04VlMewxA
+[*] 	TXT 6Oa05hbUJ9xSsvYy7pApQvwCUSSGgxvrbdizjePEsZI
+[*] 	TXT ; ls
+[*] 	TXT Remember to call or email Pippa on +44 123 4567890 or pippa@zonetransfer.me when making DNS changes
+[*] 	TXT AbCdEfG
+[*] 	TXT Hi to Josh and all his class
+[*] 	TXT ZoneTransfer.me service provided by Robin Wood - robin@digi.ninja. See http://digi.ninja/projects/zonetransferme.php for more information.
+[*] 	TXT Robin Wood
+[*] 	TXT ' or 1=1 --
+[*] 	TXT () { :]}; echo ShellShocked
+[*] 	TXT '><script>alert('Boo')</script>
+[*] 	PTR www.zonetransfer.me 5.196.105.14
+[*] 	MX @.zonetransfer.me ASPMX.L.GOOGLE.COM 74.125.133.26
+[*] 	MX @.zonetransfer.me ASPMX.L.GOOGLE.COM 2a00:1450:400c:c0c::1a
+[*] 	MX @.zonetransfer.me ALT1.ASPMX.L.GOOGLE.COM 142.250.153.26
+[*] 	MX @.zonetransfer.me ALT1.ASPMX.L.GOOGLE.COM 2a00:1450:4013:c16::1b
+[*] 	MX @.zonetransfer.me ALT2.ASPMX.L.GOOGLE.COM 142.251.9.27
+[*] 	MX @.zonetransfer.me ALT2.ASPMX.L.GOOGLE.COM 2a00:1450:4025:c03::1a
+[*] 	MX @.zonetransfer.me ASPMX2.GOOGLEMAIL.COM 142.250.153.26
+[*] 	MX @.zonetransfer.me ASPMX2.GOOGLEMAIL.COM 2a00:1450:4013:c16::1b
+[*] 	MX @.zonetransfer.me ASPMX3.GOOGLEMAIL.COM 142.251.9.26
+[*] 	MX @.zonetransfer.me ASPMX3.GOOGLEMAIL.COM 2a00:1450:4025:c03::1b
+[*] 	MX @.zonetransfer.me ASPMX4.GOOGLEMAIL.COM 142.250.150.27
+[*] 	MX @.zonetransfer.me ASPMX4.GOOGLEMAIL.COM 2a00:1450:4010:c1c::1b
+[*] 	MX @.zonetransfer.me ASPMX5.GOOGLEMAIL.COM 74.125.200.26
+[*] 	MX @.zonetransfer.me ASPMX5.GOOGLEMAIL.COM 2404:6800:4003:c00::1b
+[*] 	AAAA deadbeef.zonetransfer.me dead:beaf::
+[*] 	AAAA ipv6actnow.org.zonetransfer.me 2001:67c:2e8:11::c100:1332
+[*] 	A @.zonetransfer.me 5.196.105.14
+[*] 	A asfdbbox.zonetransfer.me 127.0.0.1
+[*] 	A canberra-office.zonetransfer.me 202.14.81.230
+[*] 	A dc-office.zonetransfer.me 143.228.181.132
+[*] 	A email.zonetransfer.me 74.125.206.26
+[*] 	A home.zonetransfer.me 127.0.0.1
+[*] 	A intns1.zonetransfer.me 81.4.108.41
+[*] 	A intns2.zonetransfer.me 167.88.42.94
+[*] 	A office.zonetransfer.me 4.23.39.254
+[*] 	A owa.zonetransfer.me 207.46.197.32
+[*] 	A alltcpportsopen.firewall.test.zonetransfer.me 127.0.0.1
+[*] 	A vpn.zonetransfer.me 174.36.59.154
+[*] 	A www.zonetransfer.me 5.196.105.14
+[*] 	CNAME staging.zonetransfer.me www.sydneyoperahouse.com 18.154.48.10
+[*] 	CNAME staging.zonetransfer.me www.sydneyoperahouse.com 18.154.48.68
+[*] 	CNAME staging.zonetransfer.me www.sydneyoperahouse.com 18.154.48.27
+[*] 	CNAME staging.zonetransfer.me www.sydneyoperahouse.com 18.154.48.73
+[*] 	CNAME staging.zonetransfer.me www.sydneyoperahouse.com 2600:9000:24be:8a00:7:60:4d00:93a1
+[*] 	CNAME staging.zonetransfer.me www.sydneyoperahouse.com 2600:9000:24be:9800:7:60:4d00:93a1
+[*] 	CNAME staging.zonetransfer.me www.sydneyoperahouse.com 2600:9000:24be:ca00:7:60:4d00:93a1
+[*] 	CNAME staging.zonetransfer.me www.sydneyoperahouse.com 2600:9000:24be:5a00:7:60:4d00:93a1
+[*] 	CNAME staging.zonetransfer.me www.sydneyoperahouse.com 2600:9000:24be:e600:7:60:4d00:93a1
+[*] 	CNAME staging.zonetransfer.me www.sydneyoperahouse.com 2600:9000:24be:1400:7:60:4d00:93a1
+[*] 	CNAME staging.zonetransfer.me www.sydneyoperahouse.com 2600:9000:24be:7200:7:60:4d00:93a1
+[*] 	CNAME staging.zonetransfer.me www.sydneyoperahouse.com 2600:9000:24be:7a00:7:60:4d00:93a1
+[*] 	SRV _sip._tcp.zonetransfer.me www 5060 0 no_ip
+[*] 	HINFO Casio fx-700G Windows XP
+[*] 	RP robin robinwood
+[*] 	AFSDB 1 asfdbbox
+[*] 	AFSDB 1 asfdbbox
+[*] 	LOC 53 20 56.558 N 1 38 33.526 W 0.00m
+[*] 	NAPTR P 1 1  email.zonetransfer.me E2U+email
+[*] 	NAPTR P 2 3 !^.*$!sip:customer-service@zonetransfer.me! . E2U+sip
+=====================================================================================
+
+#Y con esto ya habriamos sacado ese fichero de zona "DNS".

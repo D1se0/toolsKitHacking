@@ -1,0 +1,16 @@
+#"amap" es una herramienta como "nmap" pero en tal caso de que queramos corroborar la informacion de "nmap", 
+#podremos utilizar como herramienta secundaria "amap", por defecto no viene instalada en "kali", por lo que la instalaremos
+
+$ ./installAmap.sh
+
+#Primero crearemos el fichero con "nmap".
+
+$ sudo nmap -v --reason -sS -oA servicios.amap 10.10.11.20
+
+#Ahora utilizaremos "amap" con un fichero, para que testee los servicios, 
+#consultando dichos puertos de los banners para asi saber que versiones y servicios estan corriendo en dichos puertos.
+
+$ amap -i servicios.amap.gnmap -B
+
+#Con esto nos muestra informacion del los puertos que pueda "amap", 
+#esta claro que es mucho mejor "nmap" pero esta puede ser como herramienta secundaria.

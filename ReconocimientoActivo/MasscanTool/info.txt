@@ -1,0 +1,14 @@
+# En este caso esta herramienta no es que sirva para pasar desapercibido de las herramientas de IDS si no que, es para 
+# realizar un escaneo a gran escala en el menor tiempo posible.
+
+# Lo que podemos hacer con esta herramienta es realizar un escaneode todo internet entero en menos de 5 minutos, 
+# lanzando mas de 10 millones de paquetes de red a la vez, por lo que para escanear nuestra red local, podremos hacerlo 
+# de la siguiente forma:
+
+$ sudo masscan 192.168.5.0/24 -p80 --interface eth0
+
+# Tambien le podemos deslimitar y que en vez de que envie 100 paquetes por segundo, establecerle que haga 1000 paquetes 
+# por segundo.
+
+$ sudo masscan 192.168.5.0/24 -p80 --interface eth0 --rate 10000
+

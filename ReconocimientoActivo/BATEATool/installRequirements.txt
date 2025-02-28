@@ -1,0 +1,11 @@
+#Pasos para instalar los requisitos de la herramienta:
+
+$ python3 setup.py sdist
+
+$ pip3 install -r requirements.txt
+
+$ pip3 install -e .
+
+#Para comprobar que funciona:
+
+$ batea

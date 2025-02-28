@@ -1,0 +1,25 @@
+#Primero tendremos que instalar Miniconda para crear el entorno virtual:
+
+$ ./DownloadMiniconda.sh
+
+$ bash Miniconda3-latest-Linux-x86_64.sh
+
+$ echo 'export PATH="$HOME/miniconda3/bin:$PATH" >> ~/.zshrc'
+
+$ source miniconda3/bin/activate
+
+$ conda config --set auto_activate_base false
+
+$ conda create -n "env_bate" python=3.7
+
+$ conda activate env_bate
+
+$ cd batea/
+
+$ pip install -r requirements.txt
+
+$ pip install -e .
+
+$ batea
+
+$ batea

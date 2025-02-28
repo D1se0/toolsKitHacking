@@ -1,0 +1,7 @@
+# Primero instalar los requisitos para esta herramienta...
+
+$ ./requeriments_only_ssh.sh
+
+# Una vez instalado todo ya podras usar la herramienta desde cualquier parte de la terminal haciendo lo siguiente...
+
+$ cerbero_only_ssh -h
