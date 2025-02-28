@@ -1,0 +1,11 @@
+# D-Link DNS-320/330/350/x Remote Root Exploit v1.1
+Old exploit I found on one of my old boxes that I put together for a demo. Bug was found by "imax" when he actually bought one of these NAS devices, and we ended up writing exploits for it. Dunno if its unpatched, it was still 0day last time I checked but the shit device is out of support anyway so who cares.
+
+This exploit has been shared around a fair bit in the past, and probably has seen some actual in the wild use, so figured it was time to kill it dead.
+
+"callback.php" is the PentestMonkey reverse shell, stripped of some bits and such so that it works reliably. I can't find it currently but will upload it later. You are welcome to supply your own backconnect payload and alter the exploit appropriately.
+
+Notes:
+Originally committed in 2017 to this repo, some minor fixes in 2020 on a whim (replaced "requesocks" with "requests", removed Tor dependency). Had originally spoken publicly about this bug at SteelCon in 2015, but forgot to release the code at the time.  
+Bug was found... Sometime around 2013 or so? Maybe a bit earlier? I can't be sure. Turns out theres a bug collission and someone else had also found it in 2012! - http://roberto.greyhats.it/advisories/20120208-dlink-rce.txt    
+Bug seems to have been used ITW to create a botnet by some weaboo - https://www.zdnet.com/article/for-8-years-a-hacker-operated-a-massive-iot-botnet-just-to-download-anime-videos/  
