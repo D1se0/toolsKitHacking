@@ -19,21 +19,21 @@ Este **toolkit de hacking ético** reúne las herramientas más potentes y utili
 Clona el repositorio y accede a las herramientas de forma rápida:  
 
 ```bash
-git clone https://github.com/tu-usuario/toolkit-hacking.git
-cd toolkit-hacking
+git clone https://github.com/D1se0/toolsKitHacking.git
+cd toolsKitHacking
 ```
 
 ### 📌 Nota: Algunas herramientas requieren permisos de superusuario. Asegúrate de ejecutarlas con sudo cuando sea necesario.
 
-# 📚 Uso
+## 📚 Uso
 Cada herramienta se encuentra bien documentada y con ejemplos en los archivos de info.txt.
 
-# ⚠️ Disclaimer
+## ⚠️ Disclaimer
 Este toolkit es solo para uso educativo y pruebas de seguridad en entornos autorizados.
 El uso indebido de estas herramientas puede ser ilegal. El autor no se hace responsable del uso inapropiado.
 
-# 🤝 Contribuciones
+## 🤝 Contribuciones
 ¡Las contribuciones son bienvenidas! Si tienes una herramienta interesante para agregar, abre un Pull Request o crea un Issue.
 
-## 💻 Sígueme en redes sociales y mantente actualizado
-## 📩 Para cualquier duda o sugerencia, contáctame en [ciberseguridad12345@gmail.com].
+### 💻 Sígueme en redes sociales y mantente actualizado
+### 📩 Para cualquier duda o sugerencia, contáctame en [ciberseguridad12345@gmail.com].
